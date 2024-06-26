@@ -1,6 +1,4 @@
-import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:clean_cycle/pages/login.dart';
-import 'package:clean_cycle/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,12 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      routes: {
-        '/homepage': (context) => HomePage(),
-        '/signup': (context) => Signup_page(),
-        '/login': (context) => LoginPage()
-      },
+      home: LoginPage(),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:clean_cycle/pages/login.dart';
 import 'package:flutter/material.dart';
 // Home page
 
