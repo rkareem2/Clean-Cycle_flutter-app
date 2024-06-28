@@ -1,3 +1,4 @@
+import 'package:clean_cycle/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -100,27 +101,13 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 20),
 
               // sign in button
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  // ignore: prefer_const_constructors
-                  child: Center(
-                    // ignore: prefer_const_constructors
-                    child: Text('Log in',
-                        // ignore: prefer_const_constructors
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                  ),
-                ),
-              ), // ignore: prefer_const_constructors
+              MyButton(
+                  text: 'Log in',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/login');
+                  }),
+
+              // ignore: prefer_const_constructors
               SizedBox(height: 20),
 
               // ignore: prefer_const_constructors

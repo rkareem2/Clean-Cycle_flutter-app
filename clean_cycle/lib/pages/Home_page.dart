@@ -11,28 +11,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: Text('Home Page'),
-      ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Text("Login"),
-              onPressed: () {
-                Navigator.pushNamed(context, '/login');
-              },
-            ),
-            SizedBox(width: 20), // Add some space between the buttons
-            ElevatedButton(
-              child: Text("Sign Up"),
-              onPressed: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-            ),
-          ],
-        ),
+        // ignore: prefer_const_constructors
+        title: Text('Simple Home Page'),
       ),
     );
   }
