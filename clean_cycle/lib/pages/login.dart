@@ -1,11 +1,5 @@
-import 'package:clean_cycle/components/my_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-
-void main() {
-  runApp(const LoginPage());
-}
+import 'package:clean_cycle/components/my_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,122 +12,108 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
-        // ignore: prefer_const_constructors
-        body: SafeArea(
-          // ignore: prefer_const_constructors
-          child: Center(
-            // ignore: prefer_const_literals_to_create_immutables, prefer_const_constructors
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              // Welcome back Cycler
-              // ignore: prefer_const_constructors
-              Text(
-                'CleanCycle',
-                // ignore: prefer_const_constructors
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(height: 25),
-              // ignore: prefer_const_constructors
-              Text(
-                'Welcome back Recycler',
-                // ignore: prefer_const_constructors
-                style: TextStyle(fontSize: 20),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(
-                height: 20,
-              ),
-              // username / email textfield
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  // ignore: prefer_const_constructors
-                  child: Padding(
-                    // ignore: prefer_const_constructors
-                    padding: EdgeInsets.only(left: 20.0),
-                    // ignore: prefer_const_constructors
-                    child: TextField(
-                      // ignore: prefer_const_constructors
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Username/Email Address',
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // CleanCycle Title
+                const Text(
+                  'CleanCycle',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                ),
+                const SizedBox(height: 25),
+                // Welcome message
+                const Text(
+                  'Welcome back Recycler',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 20),
+
+                // Username/Email textfield
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Username/Email Address',
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              // password textfield
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  // ignore: prefer_const_constructors
-                  child: Padding(
-                    // ignore: prefer_const_constructors
-                    padding: EdgeInsets.only(left: 20.0),
-                    // ignore: prefer_const_constructors
-                    child: TextField(
-                      obscureText: true,
-                      // ignore: prefer_const_constructors
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Password',
+                // Password textfield
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              // ignore: prefer_const_constructors
-              SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              // sign in button
-              MyButton(
+                // Log in button
+                MyButton(
                   text: 'Log in',
                   onTap: () {
                     Navigator.pushNamed(context, '/login');
-                  }),
+                  },
+                ),
+                const SizedBox(height: 20),
 
-              // ignore: prefer_const_constructors
-              SizedBox(height: 20),
-
-              // ignore: prefer_const_constructors
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  // ignore: prefer_const_constructors
-                  Text('Not a member?',
-                      // ignore: prefer_const_constructors
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  // ignore: prefer_const_constructors
-                  Text(
-                    ' Sign up',
-                    // ignore: prefer_const_constructors
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+                // Not a member? Sign up
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Not a member?',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-
-              // not rgistered
-            ]),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, '/signup'); // Navigate to SignUpPage
+                      },
+                      child: const Text(
+                        ' Sign up',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

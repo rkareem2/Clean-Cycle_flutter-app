@@ -5,21 +5,21 @@ class MyButton extends StatelessWidget {
   final String text;
 
   const MyButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey,
-            border: Border.all(color: Colors.white),
+            color: Colors.blue,
+            border: Border.all(color: Colors.blue),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
