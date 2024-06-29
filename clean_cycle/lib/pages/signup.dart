@@ -1,3 +1,4 @@
+import 'package:clean_cycle/components/my_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -142,19 +143,11 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 20),
 
               // Sign Up button
-              ElevatedButton(
-                onPressed: () {
+              MyButton(
+                text: 'Sign Up',
+                onTap: () {
                   // Add sign up logic here
                 },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Colors.blue,
-                  padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-                  textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text('Sign Up'),
               ),
               const SizedBox(height: 20),
 
