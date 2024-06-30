@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1013558292992",
+    "project_id": "clean-cycle-f61c2",
+    "storage_bucket": "clean-cycle-f61c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013558292992:android:ce3bd0787c23b821de9ee5",
+        "android_client_info": {
+          "package_name": "com.example.clean_cycle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIcWzbiiB-WncnxBJyRkpFACx7QU36NZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
