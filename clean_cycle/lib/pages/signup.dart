@@ -12,7 +12,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -36,8 +36,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
+                    color: Theme.of(context).colorScheme.secondary,
+                    border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Padding(
@@ -58,8 +58,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
+                    color: Theme.of(context).colorScheme.secondary,
+                    border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Padding(
@@ -80,8 +80,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
+                    color: Theme.of(context).colorScheme.secondary,
+                    border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Padding(
@@ -102,8 +102,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
+                    color: Theme.of(context).colorScheme.secondary,
+                    border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Padding(
@@ -124,8 +124,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
+                    color: Theme.of(context).colorScheme.secondary,
+                    border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Padding(
