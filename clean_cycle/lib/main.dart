@@ -6,6 +6,7 @@ import 'package:clean_cycle/services/auth/login.dart';
 import 'package:clean_cycle/services/auth/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
