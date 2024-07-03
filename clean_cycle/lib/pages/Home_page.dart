@@ -1,3 +1,4 @@
+import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 // Home page
 
@@ -11,9 +12,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      appBar: AppBar(title: Text('Simple Home Page')),
-      drawer: Drawer(),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
+        // ignore: prefer_const_constructors
+        title: Text('Simple Home Page'),
+      ),
     );
   }
 }
