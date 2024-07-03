@@ -12,10 +12,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        // ignore: prefer_const_constructors
-        title: Text('Simple Home Page'),
-      ),
+      appBar: AppBar(title: Text('Simple Home Page')),
+      drawer: Drawer(),
     );
   }
 }

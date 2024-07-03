@@ -1,3 +1,4 @@
+import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_button.dart';
 
@@ -9,6 +10,18 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // login method
+  void login() {
+    /*
+
+    fill out authentication
+
+    */
+    //navigate to home page
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Logo to be inserted
                 // CleanCycle Title
                 const Text(
                   'CleanCycle',
@@ -81,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 MyButton(
                   text: 'Log in',
                   onTap: () {
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.pushNamed(context, '/homepage');
                   },
                 ),
                 const SizedBox(height: 20),
