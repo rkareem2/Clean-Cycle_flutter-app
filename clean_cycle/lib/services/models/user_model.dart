@@ -6,9 +6,9 @@ class UserModel {
   final String username;
   final String email;
   final String password;
-  final String? role;
+  String? role;
 
-  const UserModel({
+  UserModel({
     this.id,
     required this.fname,
     required this.lname,

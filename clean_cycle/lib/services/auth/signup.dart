@@ -175,7 +175,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         );
 
                         // 3. Save user to database
-                        SignUpController.instance.createUser(user);
+                        SignUpController.instance.createUser(user, context);
                       }
                     },
                   ),
