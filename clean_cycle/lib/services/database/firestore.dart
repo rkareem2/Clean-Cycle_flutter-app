@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+//this page will create a column "collect" on the database with data and collect as fields
 class FirestoreService {
   //get collection of collect/donate
   final CollectionReference collect =

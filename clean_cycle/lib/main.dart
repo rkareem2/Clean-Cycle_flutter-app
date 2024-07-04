@@ -1,4 +1,5 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/firebase_options.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const AuthGate(),
       // get theme from theme provider
       theme: Provider.of<ThemeProvider>(context).themeData,
       routes: {

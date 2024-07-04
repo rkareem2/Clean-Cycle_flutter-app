@@ -1,4 +1,6 @@
-import 'package:clean_cycle/pages/Home_page.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_button.dart';
 
@@ -10,16 +12,41 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //text editing controllers
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   // login method
-  void login() {
-    /*
+  void login() async {
+    //get instance of auth service
+    final _authService = AuthService();
 
-    fill out authentication
+    //try sign in
+    try {
+      await _authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    }
 
-    */
-    //navigate to home page
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
+    //display any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
+
+  void forgetPw() {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              title: const Text("User tapped forgot password."),
+            ));
   }
 
   @override
