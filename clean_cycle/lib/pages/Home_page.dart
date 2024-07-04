@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         // ignore: prefer_const_constructors
         title: Text('Simple Home Page'),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
   }
 }
