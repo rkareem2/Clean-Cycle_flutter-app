@@ -18,7 +18,6 @@ class SignUpController extends GetxController {
   final passwordController = TextEditingController();
 
   Future<void> createUser(UserModel user, BuildContext context) async {
-    user.role = "Recycler";
     await userRepo.createUser(user);
     signUpUser(user.email, user.password);
     Navigator.pushNamed(context, '/homepage');

@@ -6,16 +6,14 @@ class UserModel {
   final String username;
   final String email;
   final String password;
-  String? role;
 
-  UserModel({
+  const UserModel({
     this.id,
     required this.fname,
     required this.lname,
     required this.username,
     required this.email,
     required this.password,
-    this.role
   });
 
   toJson() {
@@ -24,8 +22,7 @@ class UserModel {
       "lname": lname,
       "username": username,
       "email": email,
-      "password": password,
-      "role": role
+      "password": password
     };
   }
 }
