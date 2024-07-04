@@ -17,10 +17,10 @@ class SignUpController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future<void> createUser(UserModel user, BuildContext context) async {
+  Future<bool> createUser(UserModel user, BuildContext context) async {
     await userRepo.createUser(user);
     signUpUser(user.email, user.password);
-    Navigator.pushNamed(context, '/homepage');
+    return true;
   }
 
   Future<void> signUpUser(String email, String password) async {
