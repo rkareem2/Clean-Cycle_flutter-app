@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SignUpController extends GetxController {
-
   static SignUpController get instance => Get.find();
   final AuthService _authService = AuthService();
   final userRepo = Get.put(UserRepository());
@@ -26,7 +25,8 @@ class SignUpController extends GetxController {
   Future<void> signUpUser(String email, String password) async {
     try {
       // Call sign up method from AuthService
-      UserCredential userCredential = await _authService.signUpWithEmailPassword(email, password);
+      UserCredential userCredential =
+          await _authService.signUpWithEmailPassword(email, password);
 
       // Handle additional user information like fname, lname, username, and role
       // This could involve saving these details to Firestore or another database
