@@ -30,7 +30,6 @@ android {
     namespace = "com.example.clean_cycle"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-    
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -46,7 +45,7 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
-        minSdkVersion 23 
+        minSdkVersion 23
     }
 
     buildTypes {
