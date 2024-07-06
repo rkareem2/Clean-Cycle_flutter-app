@@ -5,11 +5,6 @@ import 'package:flutter/material.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
-  void logout() {
-    final authService = AuthService();
-    authService.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Drawer(

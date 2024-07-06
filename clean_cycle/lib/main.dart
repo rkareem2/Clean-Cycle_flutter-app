@@ -1,5 +1,6 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
+import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/firebase_options.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const HomePage(),
+        '/logout': (context) => const LogoutPage(),
       },
     );
   }

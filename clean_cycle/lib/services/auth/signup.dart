@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:clean_cycle/components/my_button.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:clean_cycle/services/controllers/signup_controller.dart';
@@ -19,6 +17,10 @@ class _SignUpPageState extends State<SignUpPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
+
+  final formKey = GlobalKey<FormState>();
 
   //register method
   void register() async {
@@ -33,6 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
           emailController.text,
           passwordController.text,
         );
+        Navigator.pushNamed(context, '/homepage');
       }
 
       //display any errors
@@ -51,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
       showDialog(
         context: context,
         builder: (context) => const AlertDialog(
-          title: Text("Password don't match!"),
+          title: Text("Passwords don't match!"),
         ),
       );
     }
@@ -60,7 +63,6 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -97,12 +99,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: TextField(
+                          child: TextFormField(
                             controller: controller.fnameController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'First Name',
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your first name';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -120,12 +128,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: TextField(
+                          child: TextFormField(
                             controller: controller.lnameController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Last Name',
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your last name';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -143,12 +157,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: TextField(
+                          child: TextFormField(
                             controller: controller.usernameController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Username',
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your username';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -166,12 +186,22 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: TextField(
+                          child: TextFormField(
                             controller: controller.emailController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Email Address',
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your email';
+                              }
+                              if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                                  .hasMatch(value)) {
+                                return 'Please enter a valid email';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -189,13 +219,31 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
-                          child: TextField(
-                            controller: controller.passwordController,
-                            obscureText: true,
-                            decoration: const InputDecoration(
+                          child: TextFormField(
+                            controller: passwordController,
+                            obscureText: _obscurePassword,
+                            decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Password',
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscurePassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscurePassword = !_obscurePassword;
+                                  });
+                                },
+                              ),
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your password';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -211,14 +259,37 @@ class _SignUpPageState extends State<SignUpPage> {
                           border: Border.all(color: Colors.white),
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 20.0),
-                          child: TextField(
-                            obscureText: true,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: TextFormField(
+                            controller: confirmPasswordController,
+                            obscureText: _obscureConfirmPassword,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Confirm Password',
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscureConfirmPassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureConfirmPassword =
+                                        !_obscureConfirmPassword;
+                                  });
+                                },
+                              ),
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please confirm your password';
+                              }
+                              if (value != passwordController.text) {
+                                return 'Passwords do not match';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -229,44 +300,41 @@ class _SignUpPageState extends State<SignUpPage> {
                     MyButton(
                       text: 'Sign Up',
                       onTap: () {
-                        // Sign up logic here
-
-                        // 1. Validate form
+                        // Validate form
                         if (formKey.currentState!.validate()) {
-                          // 2. If form is valid, create user account
+                          // Create user account
                           final user = UserModel(
-                              fname: controller.fnameController.text.trim(),
-                              lname: controller.lnameController.text.trim(),
-                              username:
-                                  controller.usernameController.text.trim(),
-                              email: controller.emailController.text.trim(),
-                              password:
-                                  controller.passwordController.text.trim());
+                            fname: controller.fnameController.text.trim(),
+                            lname: controller.lnameController.text.trim(),
+                            username: controller.usernameController.text.trim(),
+                            email: controller.emailController.text.trim(),
+                            password: controller.passwordController.text.trim(),
+                          );
 
-                          // 3. Save user to database
+                          // Save user to database
                           SignUpController.instance.createUser(user, context);
 
+                          // Navigate to homepage
                           Navigator.pushNamed(context, '/homepage');
                         }
                       },
                     ),
                     const SizedBox(height: 20),
 
-                    // or log in text with clickable log in
+                    // Or log in text with clickable log in
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'or ',
+                          'Already a member?',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(
-                                context, '/login'); // Navigate to LoginPage
+                            Navigator.pushNamed(context, '/login');
                           },
                           child: const Text(
-                            'log in',
+                            ' Log in',
                             style: TextStyle(
                               color: Colors.blue,
                               fontWeight: FontWeight.bold,
@@ -282,4 +350,10 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: SignUpPage(),
+  ));
 }

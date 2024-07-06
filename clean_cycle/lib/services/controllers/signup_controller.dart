@@ -15,6 +15,7 @@ class SignUpController extends GetxController {
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   Future<bool> createUser(UserModel user, BuildContext context) async {
     await userRepo.createUser(user);
