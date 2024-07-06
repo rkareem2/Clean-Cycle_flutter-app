@@ -16,6 +16,14 @@ class HomePage extends StatelessWidget {
         // ignore: prefer_const_constructors
         title: Text('Simple Home Page'),
       ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/google_map');
+          },
+          child: Text('Open Google Map'),
+        ),
+      ),
       drawer: const Drawer(),
     );
   }

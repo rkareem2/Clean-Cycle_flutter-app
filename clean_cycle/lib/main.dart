@@ -1,4 +1,5 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/pages/map.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,8 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const HomePage(),
         '/logout': (context) => const LogoutPage(),
+        // ignore: prefer_const_constructors
+        '/google_map': (context) => GoogleMapPage(),
       },
     );
   }
