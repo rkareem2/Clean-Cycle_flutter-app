@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.2
   cloud_firestore: ^5.0.2
   get: ^4.6.6
+  google_generative_ai: ^0.4.3
 
 dev_dependencies:
   flutter_test:
