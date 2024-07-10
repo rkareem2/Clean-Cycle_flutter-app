@@ -1,6 +1,7 @@
+import 'package:clean_cycle/components/my_drawer_tile.dart';
+import 'package:clean_cycle/pages/settings_page.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
-//import '../pages/settings_page.dart;
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -32,29 +33,31 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
 
-            //home list file
-            // MyDrawerListTile(
-            //   text: "H O M E",
-            //   icon: icons.home,
-            //   onTap: () => Navigator.pop(context),
-            // ),
+            // home list file
+            MyDrawerTile(
+              text: "H O M E", 
+              icon: Icons.home, 
+              onTap: () {},
+            ),
 
-            //settings list tile
-            // MyDrawerListTile(
-            //     text: "S E T T I N G S",
-            //     icon: Icons.settings,
-            //     onTap: () {
-            //       //Pop drawer
-            //       Navigator.pop(context);
+            // settings list tile
+            MyDrawerTile(
+                text: "S E T T I N G S",
+                icon: Icons.settings,
+                onTap: () {
+                  //Pop drawer
+                  Navigator.pop(context);
 
-            //       //go to settings page
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => const SettingsPage(),
-            //         ),
-            //       );
-            //     }),
+                  //go to settings page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                }
+            ),
+
             const Spacer(),
 
             //logout lsit tile
