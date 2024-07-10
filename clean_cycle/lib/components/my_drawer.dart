@@ -1,6 +1,7 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
+import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -60,15 +61,50 @@ class MyDrawer extends StatelessWidget {
 
             const Spacer(),
 
-            //logout lsit tile
+            //logout list tile
             // MyDrawerListTile(
             //   text: "L O G O U T",
             //   icon: Icons.logout,
+            // Home list tile
+            // Uncomment and customize your own list tiles as needed
+            // MyDrawerListTile(
+            //   text: "H O M E",
+            //   icon: Icons.home,
+            //   onTap: () => Navigator.pop(context),
+            // ),
+
+            // Settings list tile
+            // Uncomment and customize your own list tiles as needed
+            // MyDrawerListTile(
+            //   text: "S E T T I N G S",
+            //   icon: Icons.settings,
             //   onTap: () {
-            //     logout();
             //     Navigator.pop(context);
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const SettingsPage(),
+            //       ),
+            //     );
             //   },
             // ),
+
+            const Spacer(),
+
+            // Logout list tile
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("L O G O U T"),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LogoutPage()),
+                );
+              },
+            ),
+            const Spacer(),
+
             const SizedBox(height: 25),
           ],
         ));

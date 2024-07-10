@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:clean_cycle/components/my_drawer.dart';
 // Home page
 
 void main() {
@@ -24,7 +25,7 @@ class HomePage extends StatelessWidget {
           child: Text('Open Google Map'),
         ),
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
