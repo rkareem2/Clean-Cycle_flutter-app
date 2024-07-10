@@ -36,8 +36,8 @@ class MyDrawer extends StatelessWidget {
 
             // home list file
             MyDrawerTile(
-              text: "H O M E", 
-              icon: Icons.home, 
+              text: "H O M E",
+              icon: Icons.home,
               onTap: () {},
             ),
 
@@ -56,38 +56,7 @@ class MyDrawer extends StatelessWidget {
                       builder: (context) => const SettingsPage(),
                     ),
                   );
-                }
-            ),
-
-            const Spacer(),
-
-            //logout list tile
-            // MyDrawerListTile(
-            //   text: "L O G O U T",
-            //   icon: Icons.logout,
-            // Home list tile
-            // Uncomment and customize your own list tiles as needed
-            // MyDrawerListTile(
-            //   text: "H O M E",
-            //   icon: Icons.home,
-            //   onTap: () => Navigator.pop(context),
-            // ),
-
-            // Settings list tile
-            // Uncomment and customize your own list tiles as needed
-            // MyDrawerListTile(
-            //   text: "S E T T I N G S",
-            //   icon: Icons.settings,
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) => const SettingsPage(),
-            //       ),
-            //     );
-            //   },
-            // ),
+                }),
 
             const Spacer(),
 
