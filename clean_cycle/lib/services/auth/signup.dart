@@ -1,3 +1,4 @@
+import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:clean_cycle/components/my_button.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:clean_cycle/services/controllers/signup_controller.dart';
@@ -65,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
     final controller = Get.put(SignUpController());
 
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -93,8 +94,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
@@ -122,8 +123,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
@@ -151,8 +152,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
@@ -180,8 +181,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
@@ -213,8 +214,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
@@ -255,8 +256,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          border: Border.all(color: Colors.white),
+                          color: Theme.of(context).colorScheme.secondary,
+                          border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Padding(
