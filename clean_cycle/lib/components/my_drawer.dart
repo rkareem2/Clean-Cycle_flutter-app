@@ -1,4 +1,5 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
+import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
@@ -38,7 +39,13 @@ class MyDrawer extends StatelessWidget {
             MyDrawerTile(
               text: "H O M E",
               icon: Icons.home,
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
             ),
 
             // settings list tile
