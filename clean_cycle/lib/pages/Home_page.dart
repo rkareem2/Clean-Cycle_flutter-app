@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, '/google_map');
           },
-          child: Text('Open Google Map'),
+          child: const Text('Open Google Map'),
         ),
       ),
       drawer: const MyDrawer(),

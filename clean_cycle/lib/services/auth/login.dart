@@ -20,13 +20,13 @@ class _LoginPageState extends State<LoginPage> {
   // Login method
   void login() async {
     // Get instance of auth service
-    final _authService = AuthService();
+    final authService = AuthService();
 
     // Validate form
     if (formKey.currentState!.validate()) {
       // Try sign in
       try {
-        await _authService.signInWithEmailPassword(
+        await authService.signInWithEmailPassword(
           emailController.text,
           passwordController.text,
         );
@@ -195,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: LoginPage(),
   ));
 }

@@ -1,4 +1,3 @@
-import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:clean_cycle/components/my_button.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:clean_cycle/services/controllers/signup_controller.dart';
@@ -26,13 +25,13 @@ class _SignUpPageState extends State<SignUpPage> {
   //register method
   void register() async {
     //get auth service
-    final _authService = AuthService();
+    final authService = AuthService();
 
     //check if passwords match -> create user
     if (passwordController.text == confirmPasswordController.text) {
       //try creating user
       try {
-        await _authService.signInWithEmailPassword(
+        await authService.signInWithEmailPassword(
           emailController.text,
           passwordController.text,
         );
@@ -354,7 +353,7 @@ class _SignUpPageState extends State<SignUpPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: SignUpPage(),
   ));
 }

@@ -1,7 +1,6 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
-import 'package:clean_cycle/services/auth/auth_service.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +42,7 @@ class MyDrawer extends StatelessWidget {
                 Navigator.pop(context); // Close the drawer
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const HomePage()),
                 );
               },
             ),
@@ -69,13 +68,13 @@ class MyDrawer extends StatelessWidget {
 
             // Logout list tile
             ListTile(
-              leading: Icon(Icons.logout),
-              title: Text("L O G O U T"),
+              leading: const Icon(Icons.logout),
+              title: const Text("L O G O U T"),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LogoutPage()),
+                  MaterialPageRoute(builder: (context) => const LogoutPage()),
                 );
               },
             ),
