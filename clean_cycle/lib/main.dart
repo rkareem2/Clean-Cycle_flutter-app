@@ -1,5 +1,7 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/map.dart';
+import 'package:clean_cycle/pages/Collection_Request.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
@@ -28,19 +30,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const AuthGate(),
-      // get theme from theme provider
       theme: Provider.of<ThemeProvider>(context).themeData,
       routes: {
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const HomePage(),
         '/logout': (context) => const LogoutPage(),
-        // ignore: prefer_const_constructors
-        '/google_map': (context) => GoogleMapPage(),
+        '/google_map': (context) => const GoogleMapPage(),
+        '/collection_requests': (context) => const CollectionRequestsPage(),
+        '/contribute_page': (context) => const ContributePage(),
       },
     );
   }
