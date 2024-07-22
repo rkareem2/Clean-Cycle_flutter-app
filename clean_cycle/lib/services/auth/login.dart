@@ -20,13 +20,13 @@ class _LoginPageState extends State<LoginPage> {
   // Login method
   void login() async {
     // Get instance of auth service
-    final _authService = AuthService();
+    final authService = AuthService();
 
     // Validate form
     if (formKey.currentState!.validate()) {
       // Try sign in
       try {
-        await _authService.signInWithEmailPassword(
+        await authService.signInWithEmailPassword(
           emailController.text,
           passwordController.text,
         );
@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -83,8 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
+                        color: Theme.of(context).colorScheme.secondary,
+                        border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
@@ -116,8 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
+                        color: Theme.of(context).colorScheme.secondary,
+                        border: Border.all(color: Theme.of(context).colorScheme.tertiary),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
@@ -195,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: LoginPage(),
   ));
 }

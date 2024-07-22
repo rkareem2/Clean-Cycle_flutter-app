@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:clean_cycle/services/auth/auth_service.dart'; // Import your authentication service
 
 class LogoutPage extends StatelessWidget {
-  const LogoutPage({Key? key}) : super(key: key);
+  const LogoutPage({super.key});
 
   void logout(BuildContext context) async {
-    final _authService = AuthService();
+    final authService = AuthService();
 
     try {
-      await _authService.signOut();
+      await authService.signOut();
       Navigator.pushNamedAndRemoveUntil(
         context,
         '/login',
@@ -27,7 +27,7 @@ class LogoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
