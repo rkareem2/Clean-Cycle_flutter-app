@@ -32,6 +32,9 @@ class _MyAppState extends State<GoogleMapPage> {
         colorSchemeSeed: Colors.green[700],
       ),
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Map Page'),
+        ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(
