@@ -65,6 +65,14 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50.0),
+                    child: Image.asset(
+                      'assets/logo1.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
                   // CleanCycle Title
                   const Text(
                     'CleanCycle',
@@ -84,7 +92,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.secondary,
-                        border: Border.all(color: Theme.of(context).colorScheme.tertiary),
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.tertiary),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
@@ -117,7 +126,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.secondary,
-                        border: Border.all(color: Theme.of(context).colorScheme.tertiary),
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.tertiary),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(

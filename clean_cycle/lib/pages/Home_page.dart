@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/google_map': (context) => GoogleMapPage(),
         '/collection_requests': (context) => CollectionRequestsPage(),
-        '/contribute_page': (context) => const ContributePage(),
+        '/contribute_page': (context) => ContributePage(),
       },
     );
   }
@@ -52,9 +52,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Simple Home Page'),
-      ),
+      appBar: AppBar(),
       body: _pages[_selectedIndex],
       drawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
