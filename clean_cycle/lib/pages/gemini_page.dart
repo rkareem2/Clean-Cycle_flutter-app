@@ -10,7 +10,7 @@ class GeminiPage extends StatefulWidget {
 
 class _MyAppState extends State<GeminiPage> {
   bool _isChatVisible = false;
-  
+
   void _toggleChatVisibility() {
     setState(() {
       _isChatVisible = !_isChatVisible;
@@ -20,9 +20,6 @@ class _MyAppState extends State<GeminiPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ask Gemini'),
-      ),
       body: Stack(
         children: [
           Container(
