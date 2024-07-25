@@ -17,7 +17,7 @@ class ChatbotSection extends StatefulWidget {
 
 class _ChatbotSectionState extends State<ChatbotSection> {
   final TextEditingController _controller = TextEditingController();
-  final List<Map<String, dynamic>> _messages = [];
+  final List<Map<String, dynamic>> _messages = [{'text': "Hi, I'm Gemini. Ask me something...", 'isUserMessage': false}];
 
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {
@@ -51,7 +51,6 @@ class _ChatbotSectionState extends State<ChatbotSection> {
     return Container(
       padding: const EdgeInsets.all(15),
       margin: const EdgeInsets.fromLTRB(20, 50, 20, 10),
-      color: Colors.grey[200],
       child: Column(
         children: [
           Expanded(

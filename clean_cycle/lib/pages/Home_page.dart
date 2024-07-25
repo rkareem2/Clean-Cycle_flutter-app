@@ -15,18 +15,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  bool _isChatVisible = false;
 
-  void _toggleChatVisibility() {
-    setState(() {
-      _isChatVisible = !_isChatVisible;
-    });
-  }
-
-  final List<Widget> _pages = [
+  final List<Widget> _pages = const [
     GoogleMapPage(),
     CollectionRequestsPage(),
     ContributePage(),
+    ChatbotSection()
     // Add more pages if needed
   ];
 
@@ -40,12 +34,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: _toggleChatVisibility,
-        tooltip: (_isChatVisible ? 'Hide Chat' : 'Ask Gemini'),
-        child: const Icon(Icons.chat_bubble),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       drawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -61,9 +49,14 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.upgrade_sharp),
             label: 'Contribute',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble),
+            label: 'Ask Gemini',
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );

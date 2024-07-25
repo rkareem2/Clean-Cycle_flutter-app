@@ -9,8 +9,8 @@ class CollectionRequestsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Collection Requests'),
       ),
-      body: Center(
-        child: const Text(
+      body: const Center(
+        child: Text(
           'No collection requests at the moment.',
           style: TextStyle(fontSize: 20),
         ),
