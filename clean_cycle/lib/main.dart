@@ -1,5 +1,6 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
+import 'package:clean_cycle/pages/environmental_data_page.dart';
 import 'package:clean_cycle/pages/map.dart';
 import 'package:clean_cycle/pages/Collection_Request.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/google_map': (context) => const GoogleMapPage(),
         '/collection_requests': (context) => const CollectionRequestsPage(),
         '/contribute_page': (context) => const ContributePage(),
+        '/env_data_page': (context) => const EnvDataPage(),
       },
     );
   }

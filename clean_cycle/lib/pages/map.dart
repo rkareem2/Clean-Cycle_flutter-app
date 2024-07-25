@@ -1,9 +1,6 @@
-import 'package:clean_cycle/Themes/theme_provider.dart';
-import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(const GoogleMapPage());
