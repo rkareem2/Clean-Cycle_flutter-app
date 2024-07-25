@@ -39,25 +39,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Simple Home Page')
+      body: _pages[_selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: _toggleChatVisibility,
+        tooltip: (_isChatVisible ? 'Hide Chat' : 'Ask Gemini'),
+        child: const Icon(Icons.chat_bubble),
       ),
-      body: Column(
-        children: [
-          _pages[_selectedIndex],
-          Visibility(
-            visible: _isChatVisible,
-            child: const Expanded(
-              child: ChatbotSection()
-            )
-          ),
-          FloatingActionButton(
-            onPressed: _toggleChatVisibility,
-            tooltip: (_isChatVisible ? 'Hide Chat' : 'Ask Gemini'),
-            child: const Icon(Icons.chat_bubble),
-          )
-        ],
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       drawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
