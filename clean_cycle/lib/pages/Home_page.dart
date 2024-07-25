@@ -1,30 +1,10 @@
+import 'package:clean_cycle/components/chatbot.dart';
 import 'package:clean_cycle/components/my_nav-bar.dart';
 import 'package:clean_cycle/pages/Collection_Request.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:clean_cycle/pages/map.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-      routes: {
-        '/google_map': (context) => GoogleMapPage(),
-        '/collection_requests': (context) => CollectionRequestsPage(),
-        '/contribute_page': (context) => const ContributePage(),
-      },
-    );
-  }
-}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,6 +15,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  bool _isChatVisible = false;
+
+  void _toggleChatVisibility() {
+    setState(() {
+      _isChatVisible = !_isChatVisible;
+    });
+  }
 
   final List<Widget> _pages = [
     GoogleMapPage(),
@@ -52,10 +39,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Simple Home Page'),
-      ),
       body: _pages[_selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: _toggleChatVisibility,
+        tooltip: (_isChatVisible ? 'Hide Chat' : 'Ask Gemini'),
+        child: const Icon(Icons.chat_bubble),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       drawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
