@@ -49,12 +49,8 @@ class _ChatbotSectionState extends State<ChatbotSection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ask Gemini'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(15),
-        margin: const EdgeInsets.fromLTRB(20, 50, 20, 10),
         child: Column(
           children: [
             Expanded(
@@ -70,7 +66,7 @@ class _ChatbotSectionState extends State<ChatbotSection> {
                   return Align(
                     alignment: alignment,
                     child: Container(
-                      constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
+                      constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.625),
                       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
