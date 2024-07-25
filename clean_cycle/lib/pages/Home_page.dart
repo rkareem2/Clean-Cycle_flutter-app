@@ -16,12 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    GoogleMapPage(),
-    CollectionRequestsPage(),
-    ContributePage(),
-    ChatbotSection()
-    // Add more pages if needed
+  final List<Widget> _pages = [
+    const GoogleMapPage(),
+    const CollectionRequestsPage(),
+    const ContributePage(),
+    const ChatbotSection()
   ];
 
   void _onItemTapped(int index) {
@@ -33,8 +32,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      appBar: AppBar(),
       drawer: const MyDrawer(),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

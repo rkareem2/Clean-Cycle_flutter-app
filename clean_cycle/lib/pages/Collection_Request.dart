@@ -6,9 +6,6 @@ class CollectionRequestsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Collection Requests'),
-      ),
       body: const Center(
         child: Text(
           'No collection requests at the moment.',
