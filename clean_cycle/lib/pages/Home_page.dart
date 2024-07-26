@@ -1,6 +1,6 @@
 import 'package:clean_cycle/components/chatbot.dart';
 import 'package:clean_cycle/components/my_nav-bar.dart';
-import 'package:clean_cycle/pages/Collection_Request.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';

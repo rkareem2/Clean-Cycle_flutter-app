@@ -1,5 +1,6 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,23 @@ class MyDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                }),
+
+            // collection requests tile
+            MyDrawerTile(
+                text: '''C O L L E C T I O N\nR E Q U E S T S''',
+                icon: Icons.recycling,
+                onTap: () {
+                  //Pop drawer
+                  Navigator.pop(context);
+
+                  //go to collection requests page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CollectionRequestsPage(),
                     ),
                   );
                 }),
