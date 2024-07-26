@@ -56,7 +56,7 @@ class MyDrawer extends StatelessWidget {
 
             // collection requests tile
             MyDrawerTile(
-                text: "C O L L E C T I O N             R E Q U E S T S",
+                text: '''C O L L E C T I O N\nR E Q U E S T S''',
                 icon: Icons.recycling,
                 onTap: () {
                   //Pop drawer

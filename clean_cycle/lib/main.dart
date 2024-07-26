@@ -1,7 +1,7 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/map.dart';
-import 'package:clean_cycle/pages/Collection_Request.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
