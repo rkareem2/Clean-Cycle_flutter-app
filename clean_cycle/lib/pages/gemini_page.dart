@@ -1,4 +1,4 @@
-import 'package:clean_cycle/pages/chatbot.dart';
+import 'package:clean_cycle/components/chatbot.dart';
 import 'package:flutter/material.dart';
 
 class GeminiPage extends StatefulWidget {
@@ -27,14 +27,13 @@ class _MyAppState extends State<GeminiPage> {
             margin: const EdgeInsets.all(10),
             child: Column(
               children: [
-                ListTile(
-                  title: const Text('Environmental Data Page'),
-                  subtitle: const Text('Tap here for Environmental Data'),
-                  tileColor: Colors.blue,
-                  onTap: () {
-                    Navigator.pushNamed(context, '/env_data_page');
-                  }
-                ),
+                const Text('Ask Gemini...', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 10),
+                buildGeminiSectionButton("assets/logo1.png", "Environmental Data Page", "/env_data_page"),
+                const SizedBox(height: 5),
+                buildGeminiSectionButton("assets/logo1.png", "Carbon Footprint Tracker", "/carbon_tracker_page"),
+                const SizedBox(height: 5),
+                buildGeminiSectionButton("assets/logo1.png", "Learning Center", "/carbon_tracker_page")
               ],
             ),
           ),
@@ -60,6 +59,31 @@ class _MyAppState extends State<GeminiPage> {
         child: const Icon(Icons.chat_bubble),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat
+    );
+  }
+
+  Widget buildGeminiSectionButton(String imageUrl, String textValue, String routeAddress) {
+    return Material (
+      color: Colors.blue,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        child: InkWell(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Ink.image(
+                image: AssetImage(imageUrl),
+                height: 100,
+                fit: BoxFit.fill,
+              ),
+              Text(textValue, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+            ]
+          ),
+          onTap: () {
+            Navigator.pushNamed(context, routeAddress);
+          }
+        ),
+      ),
     );
   }
 }

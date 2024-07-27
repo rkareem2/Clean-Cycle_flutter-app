@@ -1,8 +1,10 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
-import 'package:clean_cycle/pages/environmental_data_page.dart';
+import 'package:clean_cycle/pages/gemini_pages/carbon_tracker_page.dart';
+import 'package:clean_cycle/pages/gemini_pages/environmental_data_page.dart';
 import 'package:clean_cycle/pages/map.dart';
 import 'package:clean_cycle/pages/Collection_Request.dart';
+import 'package:clean_cycle/pages/splashscreen.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const AuthGate(),
       theme: Provider.of<ThemeProvider>(context).themeData,
+      // initialRoute: "/splash",
       routes: {
+        '/splash': (context) => const SplashScreen(),
+        '/auth': (context) => const AuthGate(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const HomePage(),
@@ -44,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/collection_requests': (context) => const CollectionRequestsPage(),
         '/contribute_page': (context) => const ContributePage(),
         '/env_data_page': (context) => const EnvDataPage(),
+        '/carbon_tracker_page': (context) => const CarbonTrackerPage(),
       },
     );
   }
