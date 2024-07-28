@@ -14,16 +14,20 @@ class MyDrawer extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
-            //app logo
-            Padding(
-              padding: const EdgeInsets.only(top: 50.0),
-              child: Image.asset(
-                'assets/logo1.png',
-                width: 100,
-                height: 100,
-              ),
-            ),
+            const SizedBox(height: 30),
 
+            MyDrawerTile(
+              text: "Profile",
+              imageUrl:
+                  'https://example.com/user-profile.jpg', // Replace with actual URL
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+            ),
             // home list file
             MyDrawerTile(
               text: "H O M E",

@@ -4,12 +4,14 @@ class MyDrawerTile extends StatelessWidget {
   final String text;
   final IconData? icon;
   final void Function()? onTap;
+  final String? imageUrl;
 
   const MyDrawerTile({
     super.key,
     required this.text,
-    required this.icon,
+    this.icon,
     required this.onTap,
+    this.imageUrl,
   });
 
   @override
@@ -17,13 +19,17 @@ class MyDrawerTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 5.0),
       child: ListTile(
+        leading: imageUrl != null
+            ? CircleAvatar(
+                backgroundImage: NetworkImage(imageUrl!),
+              )
+            : Icon(
+                icon,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
         title: Text(
           text,
           style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
-        ),
-        leading: Icon(
-          icon,
-          color: Theme.of(context).colorScheme.inversePrimary,
         ),
         onTap: onTap,
       ),
