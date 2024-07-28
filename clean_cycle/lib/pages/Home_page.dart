@@ -2,6 +2,7 @@ import 'package:clean_cycle/components/chatbot.dart';
 import 'package:clean_cycle/components/my_nav-bar.dart';
 import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
+import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:clean_cycle/pages/map.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     const GoogleMapPage(),
     const CollectionRequestsPage(),
     const ContributePage(),
-    const ChatbotSection()
+    const GeminiPage()
   ];
 
   void _onItemTapped(int index) {
@@ -50,8 +51,8 @@ class _HomePageState extends State<HomePage> {
             label: 'Contribute',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble),
-            label: 'Ask Gemini',
+            icon: Icon(Icons.star_border),
+            label: 'Gemini',
           ),
         ],
         currentIndex: _selectedIndex,
