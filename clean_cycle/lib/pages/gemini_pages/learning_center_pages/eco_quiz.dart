@@ -62,14 +62,14 @@ class QuizProvider with ChangeNotifier {
   }
 }
 
-class EcoTrivia extends StatefulWidget {
-  const EcoTrivia({super.key});
+class EcoQuiz extends StatefulWidget {
+  const EcoQuiz({super.key});
 
   @override
-  _EcoTriviaState createState() => _EcoTriviaState();
+  _EcoQuizState createState() => _EcoQuizState();
 }
 
-class _EcoTriviaState extends State<EcoTrivia> {
+class _EcoQuizState extends State<EcoQuiz> {
   List<Question> _questions = [];
   bool _isLoading = true;
   String? _errorMessage;
