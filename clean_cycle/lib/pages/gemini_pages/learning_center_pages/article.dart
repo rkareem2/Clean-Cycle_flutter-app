@@ -26,7 +26,7 @@ class _GeminiArticleState extends State<GeminiArticle> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gemini Query'),
+        title: const Text('Gemini Articles'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
