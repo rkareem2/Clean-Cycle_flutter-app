@@ -21,6 +21,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Provider.debugCheckInvalidValueType = null;
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),

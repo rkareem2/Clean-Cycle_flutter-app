@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+String geminiApiKey() {
+  return "AIzaSyDhiDIX5m5XtX1duWQQ6_Q1FsL9hVG9PdQ";
+}
+
 Future<String?> queryGemini(String request) async {
-  final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: "AIzaSyDhiDIX5m5XtX1duWQQ6_Q1FsL9hVG9PdQ");
+  final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: geminiApiKey());
   final content = [Content.text(request)];
   final response = await model.generateContent(content);
   return response.text;

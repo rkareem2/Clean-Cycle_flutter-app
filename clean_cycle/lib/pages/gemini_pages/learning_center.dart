@@ -1,4 +1,5 @@
 import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/article.dart';
+import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_games.dart';
 import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_myths.dart';
 import 'package:flutter/material.dart';
 
@@ -6,9 +7,9 @@ class LearningCenter extends StatelessWidget {
   final List<GridItem> items = [
     GridItem('Articles', Icons.article_outlined, GeminiArticle()),
     GridItem('Eco Myths', Icons.warning_amber_outlined, const EcoMythsPage()),
-    GridItem('Games', Icons.gamepad_outlined, const TopicPage(title: 'Games')),
+    GridItem('Games', Icons.gamepad_outlined, EcoGames()),
     GridItem('Tips', Icons.lightbulb_outline, const TopicPage(title: 'Tips')),
-    GridItem('Forums', Icons.people_alt_outlined, const TopicPage(title: 'Forums')),
+    GridItem('Forums', Icons.forum_outlined, const TopicPage(title: 'Forums')),
   ];
 
   @override
