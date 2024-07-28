@@ -33,7 +33,7 @@ class _MyAppState extends State<GeminiPage> {
                 const SizedBox(height: 5),
                 buildGeminiSectionButton("assets/logo1.png", "Carbon Footprint Tracker", "/carbon_tracker_page"),
                 const SizedBox(height: 5),
-                buildGeminiSectionButton("assets/logo1.png", "Learning Center", "/carbon_tracker_page")
+                buildGeminiSectionButton("assets/logo1.png", "Learning Center", "/learning_center")
               ],
             ),
           ),

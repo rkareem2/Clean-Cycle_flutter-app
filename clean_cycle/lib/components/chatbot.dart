@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 Future<String?> queryGemini(String request) async {
   final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: "AIzaSyDhiDIX5m5XtX1duWQQ6_Q1FsL9hVG9PdQ");
@@ -61,7 +62,6 @@ class _ChatbotSectionState extends State<ChatbotSection> {
                   final isUserMessage = message['isUserMessage'] as bool;
                   final alignment = isUserMessage ? Alignment.centerRight : Alignment.centerLeft;
                   final color = isUserMessage ? Colors.grey[300] : Colors.blue[300];
-                  final textColor = isUserMessage ? Colors.black : Colors.black87;
 
                   return Align(
                     alignment: alignment,
@@ -69,14 +69,8 @@ class _ChatbotSectionState extends State<ChatbotSection> {
                       constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.625),
                       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                       margin: const EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                        color: color,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        message['text'],
-                        style: TextStyle(color: textColor),
-                      ),
+                      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
+                      child: isUserMessage ? Text(message['text']) : MarkdownBody(data: message['text'])
                     ),
                   );
                 },
@@ -87,18 +81,11 @@ class _ChatbotSectionState extends State<ChatbotSection> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
-                    onSubmitted: (_) {
-                      _sendMessage();
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'Enter your message...',
-                    ),
+                    onSubmitted: (_) => _sendMessage(),
+                    decoration: const InputDecoration(hintText: 'Enter your message...'),
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: _sendMessage,
-                ),
+                IconButton(icon: const Icon(Icons.send), onPressed: _sendMessage),
               ],
             ),
           ],
