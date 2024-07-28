@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class GeminiArticle extends StatefulWidget {
+  const GeminiArticle({super.key});
+
   @override
   _GeminiArticleState createState() => _GeminiArticleState();
 }

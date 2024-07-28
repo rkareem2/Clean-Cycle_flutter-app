@@ -6,8 +6,10 @@ class EcoGames extends StatelessWidget {
   final List<GridItem> items = [
     GridItem('Flashcards', Icons.quiz_outlined, const TopicPage(title: 'Flashcards')),
     GridItem('Quizzes', Icons.file_copy_outlined, const TopicPage(title: 'Quizzes')),
-    GridItem('Trivia', Icons.emoji_events_outlined, EcoQuiz()),
+    GridItem('Trivia', Icons.emoji_events_outlined, const EcoQuiz()),
   ];
+
+  EcoGames({super.key});
 
   @override
   Widget build(BuildContext context) {

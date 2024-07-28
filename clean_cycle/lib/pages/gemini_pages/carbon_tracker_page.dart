@@ -13,7 +13,7 @@ class _CarbonTrackerPageState extends State<CarbonTrackerPage> {
   void _openCalculatorSurvey() {
     Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CarbonCalculatorPage()),
+              MaterialPageRoute(builder: (context) => const CarbonCalculatorPage()),
             );
     // showDialog(
     //   context: context,
