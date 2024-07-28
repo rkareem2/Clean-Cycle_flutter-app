@@ -27,8 +27,6 @@ class _MyAppState extends State<GeminiPage> {
             margin: const EdgeInsets.all(10),
             child: Column(
               children: [
-                const Text('Ask Gemini...', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 10),
                 buildGeminiSectionButton("assets/logo1.png", "Environmental Data Page", "/env_data_page"),
                 const SizedBox(height: 5),
                 buildGeminiSectionButton("assets/logo1.png", "Carbon Footprint Tracker", "/carbon_tracker_page"),

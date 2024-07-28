@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
-            label: 'Ask Gemini',
+            label: 'Gemini',
           ),
         ],
         currentIndex: _selectedIndex,
