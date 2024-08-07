@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 
 class LearningCenter extends StatelessWidget {
   final List<GridItem> items = [
-    GridItem('Articles', Icons.article_outlined, GeminiArticle()),
+    GridItem('Articles', Icons.article_outlined, const GeminiArticle()),
     GridItem('Eco Myths', Icons.warning_amber_outlined, const EcoMythsPage()),
     GridItem('Games', Icons.gamepad_outlined, EcoGames()),
     GridItem('Tips', Icons.lightbulb_outline, const TopicPage(title: 'Tips')),
     GridItem('Forums', Icons.forum_outlined, const TopicPage(title: 'Forums')),
   ];
+
+  LearningCenter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +86,7 @@ class GridItemWidget extends StatelessWidget {
 class TopicPage extends StatelessWidget {
   final String title;
 
-  const TopicPage({Key? key, required this.title}) : super(key: key);
+  const TopicPage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

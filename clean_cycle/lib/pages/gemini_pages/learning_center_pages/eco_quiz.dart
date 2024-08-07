@@ -114,7 +114,7 @@ class _EcoQuizState extends State<EcoQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Eco Trivia'),
+        title: const Text('Eco Quiz'),
       ),
       body: _submitted ? _buildResultPage() : _isLoading
           ? const Center(child: CircularProgressIndicator())

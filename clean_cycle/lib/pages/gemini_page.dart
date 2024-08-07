@@ -25,7 +25,7 @@ class _MyAppState extends State<GeminiPage> {
           Container(
             padding: const EdgeInsets.all(15),
             margin: const EdgeInsets.all(10),
-            child: Column(
+            child: ListView(
               children: [
                 buildGeminiSectionButton("assets/logo1.png", "Environmental Data Page", "/env_data_page"),
                 const SizedBox(height: 5),
@@ -54,6 +54,8 @@ class _MyAppState extends State<GeminiPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _toggleChatVisibility,
         tooltip: (_isChatVisible ? 'Hide Chat' : 'Ask Gemini'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
         child: const Icon(Icons.chat_bubble),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat
