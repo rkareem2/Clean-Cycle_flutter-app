@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   // navigate to profile page
   void goToProfilePage() {
     Navigator.pop(context);
-
+  //text
     // go to profile page
     Navigator.push(
       context,
