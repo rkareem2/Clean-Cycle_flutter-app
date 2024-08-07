@@ -5,7 +5,8 @@ import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  const MyDrawer({super.key, required this.onProfileTap});
+  final void Function()? onProfileTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,18 @@ class MyDrawer extends StatelessWidget {
             MyDrawerTile(
               text: "H O M E",
               icon: Icons.home,
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+            ),
+
+            MyDrawerTile(
+              text: "P R O F I L E",
+              icon: Icons.person,
               onTap: () {
                 Navigator.pop(context); // Close the drawer
                 Navigator.push(
