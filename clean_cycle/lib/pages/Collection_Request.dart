@@ -1,3 +1,4 @@
+import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:flutter/material.dart';
 
 class CollectionRequestsPage extends StatelessWidget {
@@ -11,6 +12,15 @@ class CollectionRequestsPage extends StatelessWidget {
           'No collection requests at the moment.',
           style: TextStyle(fontSize: 20),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ContributePage()),
+          );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
