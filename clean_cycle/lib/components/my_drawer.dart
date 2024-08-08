@@ -1,12 +1,14 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:clean_cycle/pages/collection_requests_page.dart';
+import 'package:clean_cycle/pages/contribute_history.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  const MyDrawer({super.key, required this.onProfileTap});
+  final void Function()? onProfileTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,18 @@ class MyDrawer extends StatelessWidget {
             MyDrawerTile(
               text: "H O M E",
               icon: Icons.home,
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+            ),
+
+            MyDrawerTile(
+              text: "P R O F I L E",
+              icon: Icons.person,
               onTap: () {
                 Navigator.pop(context); // Close the drawer
                 Navigator.push(
@@ -77,6 +91,24 @@ class MyDrawer extends StatelessWidget {
 
             const Spacer(),
 
+            // history list tile
+            MyDrawerTile(
+                text: "H I S T O R Y",
+                icon: Icons.history,
+                onTap: () {
+                  // Pop drawer
+                  Navigator.pop(context);
+
+                  // Go to history page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const historyPage(),
+                    ),
+                  );
+                }),
+
+            const Spacer(),
             // Logout list tile
             ListTile(
               leading: const Icon(Icons.logout),

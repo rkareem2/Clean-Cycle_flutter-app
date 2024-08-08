@@ -1,3 +1,4 @@
+import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:flutter/material.dart';
 
 class CollectionRequestsPage extends StatelessWidget {
@@ -59,7 +60,7 @@ class CollectionRequestsPage extends StatelessWidget {
                               child:Text(
                                 ' CATALOG',
                                 style: TextStyle(
-                                  color: Theme.of(context).colorScheme.tertiary,
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.w700,
@@ -76,44 +77,89 @@ class CollectionRequestsPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // Collections Picked Up
-                     Container(
-                       width: 150,
-                       height: 160,
-                       decoration: ShapeDecoration(
-                         color: Color(0xFFE1F0E5),
-                         shape: RoundedRectangleBorder(
-                           side: BorderSide(
-                             width: 3,
-                             strokeAlign: BorderSide.strokeAlignOutside,
-                             color: Color(0xFFD0E4E4),
+                      GestureDetector(
+                        onTap: () {
+                          print("user tapped!");
+                        },
+                        child: 
+                          // Collections Picked Up
+                         Container(
+                           width: 150,
+                           height: 160,
+                           decoration: ShapeDecoration(
+                             color: Color(0xFFE1F0E5),
+                             shape: RoundedRectangleBorder(
+                               side: BorderSide(
+                                 width: 3,
+                                 strokeAlign: BorderSide.strokeAlignOutside,
+                                 color: Color(0xFFD0E4E4),
+                               ),
+                               borderRadius: BorderRadius.circular(30),
+                             ),
                            ),
-                           borderRadius: BorderRadius.circular(30),
-                         ),
-                       ),
-                     ),
+                           child: Padding(
+                             padding: EdgeInsets.symmetric(vertical: 5),
+                             child:Column(
+                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                               children: [
+                                 Text(
+                                   'Collections Picked Up',
+                                   textAlign: TextAlign.center,
+                                   style: TextStyle(
+                                     color: Color(0xFF1F3024),
+                                     fontSize: 18,
+                                     fontFamily: 'Inter',
+                                     fontWeight: FontWeight.w600,
+                                     height: 0,
+                                   ),
+                                 ),
+                                 Icon(
+                                   Icons.signpost,
+                                   size: 50,
+                                 ),
+                                 Text(
+                                     '5\ncount',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                      ),
 
-                      // Collections Dropped Off
-                      Container(
-                        width: 150,
-                        height: 160,
-                        decoration: ShapeDecoration(
-                          color: Color(0xFFE1F0E5),
-                          shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                              width: 3,
-                              strokeAlign: BorderSide.strokeAlignOutside,
-                              color: Color(0xFFD0E4E4),
-                            ),
-                          borderRadius: BorderRadius.circular(30),
+                                 ),
+                               ],
+                             ),
+                           ),
+                         ),
                         ),
-                      ),
+                        
+                          // Collections Dropped Off
+                          Container(
+                            width: 150,
+                            height: 160,
+                            decoration: ShapeDecoration(
+                              color: Color(0xFFE1F0E5),
+                              shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                  width: 3,
+                                  strokeAlign: BorderSide.strokeAlignOutside,
+                                  color: Color(0xFFD0E4E4),
+                                ),
+                              borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-        ),
-    );
+                ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ContributePage()),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
+              );
   }
 }

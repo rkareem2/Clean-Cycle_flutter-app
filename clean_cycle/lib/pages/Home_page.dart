@@ -3,6 +3,7 @@ import 'package:clean_cycle/components/my_nav-bar.dart';
 import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
+import 'package:clean_cycle/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:clean_cycle/pages/map.dart';
@@ -30,11 +31,24 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // navigate to profile page
+  void goToProfilePage() {
+    Navigator.pop(context);
+  //text
+    // go to profile page
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProfilePage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(
+        onProfileTap: goToProfilePage,
+      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
