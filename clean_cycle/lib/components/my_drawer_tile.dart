@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class MyDrawerTile extends StatelessWidget {
   final String text;
   final IconData? icon;
-  final void Function()? onTap;
   final String? imageUrl;
+  final void Function()? onTap;
 
   const MyDrawerTile({
     super.key,
     required this.text,
     this.icon,
-    required this.onTap,
     this.imageUrl,
+    required this.onTap,
   });
 
   @override
@@ -19,6 +19,10 @@ class MyDrawerTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 5.0),
       child: ListTile(
+        title: Text(
+          text,
+          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+        ),
         leading: imageUrl != null
             ? CircleAvatar(
                 backgroundImage: NetworkImage(imageUrl!),
@@ -27,10 +31,6 @@ class MyDrawerTile extends StatelessWidget {
                 icon,
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
-        title: Text(
-          text,
-          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
-        ),
         onTap: onTap,
       ),
     );

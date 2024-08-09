@@ -59,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
 
     //update in firestore
-    if (newValue.trim().length > 0) {
+    if (newValue.trim().isNotEmpty) {
       // only update if there is something in the textfield
       await usersCollection.doc(currentUser.email).update({field: newValue});
     }
@@ -81,7 +81,15 @@ class _ProfilePageState extends State<ProfilePage> {
         builder: (context, snapshot) {
           // get user data
           if (snapshot.hasData) {
-            final userData = snapshot.data!.data() as Map<String, dynamic>;
+            final userData = snapshot.data!.data();
+
+            if (userData == null) {
+              return const Center(
+                child: Text('No data available'),
+              );
+            }
+
+            final userMap = userData as Map<String, dynamic>;
 
             return ListView(
               children: [
@@ -115,14 +123,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 // username
                 MyTextBox(
-                  text: userData['username'],
+                  text: userMap['username'],
                   sectionName: 'username',
                   onPressed: () => editField('username'),
                 ),
 
                 // password
                 MyTextBox(
-                  text: userData['password'],
+                  text: userMap['password'],
                   sectionName: 'password',
                   onPressed: () => editField('password'),
                 ),
@@ -130,7 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
             );
           } else if (snapshot.hasError) {
             return Center(
-              child: Text('Error${snapshot.error}'),
+              child: Text('Error: ${snapshot.error}'),
             );
           }
           return const Center(

@@ -1,10 +1,10 @@
-import 'package:clean_cycle/pages/Collection_Request.dart';
-import 'package:clean_cycle/pages/contribute_page.dart';
-import 'package:clean_cycle/pages/gemini_page.dart';
-import 'package:clean_cycle/pages/profile_page.dart';
+import 'package:clean_cycle/components/my_nav-bar.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:clean_cycle/pages/map.dart';
+import 'package:clean_cycle/pages/Collection_Request.dart';
+import 'package:clean_cycle/pages/contribute_page.dart';
+import 'package:clean_cycle/components/chatbot.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,11 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const GoogleMapPage(),
-    const CollectionRequestsPage(),
-    const ContributePage(),
-    const GeminiPage()
+  final List<Widget> _pages = const [
+    GoogleMapPage(),
+    CollectionRequestsPage(),
+    ContributePage(),
+    ChatbotSection()
   ];
 
   void _onItemTapped(int index) {
@@ -29,24 +29,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // navigate to profile page
-  void goToProfilePage() {
-    Navigator.pop(context);
-  //text
-    // go to profile page
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ProfilePage()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: MyDrawer(
-        onProfileTap: goToProfilePage,
-      ),
+      drawer: const MyDrawer(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -63,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Contribute',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.star_border),
+            icon: Icon(Icons.chat_bubble),
             label: 'Gemini',
           ),
         ],
@@ -71,6 +58,15 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.amber[800],
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ContributePage()),
+          );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

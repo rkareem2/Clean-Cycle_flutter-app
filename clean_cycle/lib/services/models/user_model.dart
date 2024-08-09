@@ -1,5 +1,4 @@
 class UserModel {
-
   final String? id;
   final String fname;
   final String lname;
@@ -15,6 +14,12 @@ class UserModel {
     required this.email,
     required this.password,
   });
+
+  get firstName => null;
+
+  get lastName => null;
+
+  get profileUrl => null;
 
   toJson() {
     return {
