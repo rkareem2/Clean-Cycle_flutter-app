@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class ContributePage extends StatefulWidget {
   const ContributePage({super.key});
@@ -10,6 +12,18 @@ class ContributePage extends StatefulWidget {
 class _ContributePageState extends State<ContributePage> {
   bool recycleSelected = false;
   bool reuseSelected = false;
+  File? _image;
+
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedFile = await _picker.pickImage(source: source);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +40,23 @@ class _ContributePageState extends State<ContributePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  'Create New Requests',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                // Row with Backward Arrow and Title
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const Text(
+                      'Contribute Item',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20),
                 const Text(
@@ -41,12 +69,13 @@ class _ContributePageState extends State<ContributePage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    hintText: 'Enter item name',
+                    hintText:
+                        'Enter item name (e.g: bottles, plastic, cans, TV)',
                   ),
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Description',
+                  'Description (optional)',
                   style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 8),
@@ -57,14 +86,14 @@ class _ContributePageState extends State<ContributePage> {
                     ),
                     hintText: 'Enter item description',
                   ),
-                  maxLines: 3,
+                  maxLines: 4,
                 ),
                 const SizedBox(height: 20),
                 const Text(
                   'Tags',
                   style: TextStyle(fontSize: 18),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 5),
                 CheckboxListTile(
                   title: const Text('Recycle'),
                   value: recycleSelected,
@@ -84,21 +113,55 @@ class _ContributePageState extends State<ContributePage> {
                   },
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Upload Image',
-                  style: TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  height: 150,
-                  width: double.infinity,
-                  color: Colors.grey[800],
-                  child: const Center(
-                    child: Text(
-                      'Image Picker Placeholder',
-                      style: TextStyle(color: Colors.white),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: SizedBox(
+                        width: double.infinity, // Make button take full width
+                        child: ElevatedButton.icon(
+                          onPressed: () => _pickImage(ImageSource.camera),
+                          icon: Icon(Icons.camera_alt),
+                          label: Text(
+                            'Take Photo',
+                            style:
+                                TextStyle(fontSize: 20), // Increase font size
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 16.0), // Increase button height
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: SizedBox(
+                        width: double.infinity, // Make button take full width
+                        child: ElevatedButton.icon(
+                          onPressed: () => _pickImage(ImageSource.gallery),
+                          icon: Icon(Icons.photo_library),
+                          label: Text(
+                            'Select photo',
+                            style:
+                                TextStyle(fontSize: 20), // Increase font size
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 16.0), // Increase button height
+                          ),
+                        ),
+                      ),
+                    ),
+                    if (_image != null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Image.file(
+                          _image!,
+                          height: 150,
+                        ),
+                      ),
+                  ],
                 ),
                 const SizedBox(height: 20),
                 Center(

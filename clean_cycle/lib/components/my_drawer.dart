@@ -122,7 +122,6 @@ class MyDrawer extends StatelessWidget {
                 );
               }),
 
-          const Spacer(),
           // history list tile
           MyDrawerTile(
             text: "H I S T O R Y",
