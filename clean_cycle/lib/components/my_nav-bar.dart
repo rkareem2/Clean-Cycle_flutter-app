@@ -1,4 +1,4 @@
-import 'package:clean_cycle/pages/Collection_Request.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/map.dart';

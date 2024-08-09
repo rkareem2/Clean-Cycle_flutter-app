@@ -1,5 +1,6 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
 import 'package:clean_cycle/pages/Home_page.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_history.dart';
 import 'package:clean_cycle/pages/profile_page.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
@@ -104,6 +105,24 @@ class MyDrawer extends StatelessWidget {
               );
             },
           ),
+          // collection requests tile
+          MyDrawerTile(
+              text: '''C O L L E C T I O N\nR E Q U E S T S''',
+              icon: Icons.recycling,
+              onTap: () {
+                //Pop drawer
+                Navigator.pop(context);
+
+                //go to collection requests page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CollectionRequestsPage(),
+                  ),
+                );
+              }),
+
+          const Spacer(),
           // history list tile
           MyDrawerTile(
             text: "H I S T O R Y",

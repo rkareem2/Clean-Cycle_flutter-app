@@ -1,10 +1,10 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_pages/carbon_tracker_page.dart';
 import 'package:clean_cycle/pages/gemini_pages/environmental_data_page.dart';
 import 'package:clean_cycle/pages/gemini_pages/learning_center.dart';
 import 'package:clean_cycle/pages/map.dart';
-import 'package:clean_cycle/pages/Collection_Request.dart';
 import 'package:clean_cycle/pages/splashscreen.dart';
 import 'package:clean_cycle/services/auth/auth_gate.dart';
 import 'package:clean_cycle/services/auth/logout.dart';
