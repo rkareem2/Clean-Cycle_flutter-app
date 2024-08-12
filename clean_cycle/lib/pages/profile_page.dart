@@ -35,10 +35,10 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           content: TextField(
               autofocus: true,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: "Enter new $field",
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
               ),
               onChanged: (value) {
                 newValue = value;
@@ -90,7 +90,6 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text("Profile Page"),
-        backgroundColor: Colors.grey[900],
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
@@ -162,21 +161,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 // first name
                 MyTextBox(
                   text: userMap['fname'],
-                  sectionName: 'First name',
+                  sectionName: 'First Name',
                   onPressed: () => editField('fname'),
                 ),
 
                 // last name
                 MyTextBox(
                   text: userMap['lname'],
-                  sectionName: 'Last name',
+                  sectionName: 'Last Name',
                   onPressed: () => editField('lname'),
                 ),
 
                 // username
                 MyTextBox(
                   text: userMap['username'],
-                  sectionName: 'username',
+                  sectionName: 'Username',
                   onPressed: () => editField('username'),
                 ),
               ],

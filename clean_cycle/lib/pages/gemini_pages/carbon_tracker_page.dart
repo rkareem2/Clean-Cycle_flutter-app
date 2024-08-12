@@ -5,25 +5,16 @@ class CarbonTrackerPage extends StatefulWidget {
   const CarbonTrackerPage({super.key});
   
   @override
-  _CarbonTrackerPageState createState() => _CarbonTrackerPageState();
+  CarbonTrackerPageState createState() => CarbonTrackerPageState();
 }
 
-class _CarbonTrackerPageState extends State<CarbonTrackerPage> {
+class CarbonTrackerPageState extends State<CarbonTrackerPage> {
 
   void _openCalculatorSurvey() {
     Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CarbonCalculatorPage()),
-            );
-    // showDialog(
-    //   context: context,
-    //   builder: (BuildContext context) {
-    //     return AlertDialog(
-    //       title: const Text('Carbon Footprint Calculator'),
-    //       content: CarbonCalculatorPage(),
-    //     );
-    //   }
-    // );
+      context,
+      MaterialPageRoute(builder: (context) => const CarbonCalculatorPage()),
+    );
   }
 
   @override

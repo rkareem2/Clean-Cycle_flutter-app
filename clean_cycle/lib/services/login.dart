@@ -1,4 +1,4 @@
-import 'package:clean_cycle/services/auth/auth_service.dart';
+import 'package:clean_cycle/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_button.dart';
 

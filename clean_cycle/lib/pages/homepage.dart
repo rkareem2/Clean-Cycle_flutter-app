@@ -1,5 +1,4 @@
 import 'package:clean_cycle/pages/collection_center.dart';
-import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
@@ -9,17 +8,16 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const GoogleMapPage(),
+  final List<Widget> _pages = const [
+    GoogleMapPage(),
     CollectionCenter(),
-    //const ContributePage(),
-    const GeminiPage()
+    GeminiPage()
   ];
 
   void _onItemTapped(int index) {
@@ -44,12 +42,6 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.request_page),
             label: 'Requests',
           ),
-          /*
-          BottomNavigationBarItem(
-            icon: Icon(Icons.upgrade_sharp),
-            label: 'Contribute',
-          ),
-          */
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
             label: 'Gemini',

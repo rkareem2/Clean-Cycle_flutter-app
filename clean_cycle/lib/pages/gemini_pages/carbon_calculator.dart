@@ -6,10 +6,10 @@ class CarbonCalculatorPage extends StatefulWidget {
   const CarbonCalculatorPage({super.key});
 
   @override
-  _CarbonCalculatorPageState createState() => _CarbonCalculatorPageState();
+  CarbonCalculatorPageState createState() => CarbonCalculatorPageState();
 }
 
-class _CarbonCalculatorPageState extends State<CarbonCalculatorPage> {
+class CarbonCalculatorPageState extends State<CarbonCalculatorPage> {
   late WebViewController _controller;
 
   @override

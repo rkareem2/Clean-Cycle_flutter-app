@@ -1,4 +1,4 @@
-import 'package:clean_cycle/services/auth/auth_service.dart';
+import 'package:clean_cycle/services/auth_service.dart';
 import 'package:clean_cycle/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

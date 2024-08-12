@@ -5,10 +5,10 @@ class EcoMythsPage extends StatefulWidget {
   const EcoMythsPage({super.key});
 
   @override
-  _EcoMythsPageState createState() => _EcoMythsPageState();
+  EcoMythsPageState createState() => EcoMythsPageState();
 }
 
-class _EcoMythsPageState extends State<EcoMythsPage> {
+class EcoMythsPageState extends State<EcoMythsPage> {
   List<Flashcard> _flashcards = [];
   bool _isLoading = false;
 
@@ -87,10 +87,10 @@ class FlashcardWidget extends StatefulWidget {
   const FlashcardWidget({super.key, required this.flashcard});
 
   @override
-  _FlashcardWidgetState createState() => _FlashcardWidgetState();
+  FlashcardWidgetState createState() => FlashcardWidgetState();
 }
 
-class _FlashcardWidgetState extends State<FlashcardWidget>
+class FlashcardWidgetState extends State<FlashcardWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

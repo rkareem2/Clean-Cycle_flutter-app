@@ -17,10 +17,10 @@ class ChatbotSection extends StatefulWidget {
   const ChatbotSection({super.key});
 
   @override
-  _ChatbotSectionState createState() => _ChatbotSectionState();
+  ChatbotSectionState createState() => ChatbotSectionState();
 }
 
-class _ChatbotSectionState extends State<ChatbotSection> {
+class ChatbotSectionState extends State<ChatbotSection> {
   final TextEditingController _controller = TextEditingController();
   final List<Map<String, dynamic>> _messages = [{'text': "Hi, I'm Gemini. Ask me something...", 'isUserMessage': false}];
 

@@ -6,10 +6,10 @@ class GeminiArticle extends StatefulWidget {
   const GeminiArticle({super.key});
 
   @override
-  _GeminiArticleState createState() => _GeminiArticleState();
+  GeminiArticleState createState() => GeminiArticleState();
 }
 
-class _GeminiArticleState extends State<GeminiArticle> {
+class GeminiArticleState extends State<GeminiArticle> {
   final TextEditingController _controller = TextEditingController();
   String? _response;
 

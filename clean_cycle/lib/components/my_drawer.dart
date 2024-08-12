@@ -1,10 +1,10 @@
 import 'package:clean_cycle/components/my_drawer_tile.dart';
-import 'package:clean_cycle/pages/Home_page.dart';
-import 'package:clean_cycle/pages/collection_requests_page.dart';
+import 'package:clean_cycle/pages/homepage.dart';
+import 'package:clean_cycle/pages/collection_center.dart';
 import 'package:clean_cycle/pages/contribute_history.dart';
 import 'package:clean_cycle/pages/profile_page.dart';
 import 'package:clean_cycle/pages/settings_page.dart';
-import 'package:clean_cycle/services/auth/logout.dart';
+import 'package:clean_cycle/services/logout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class MyDrawer extends StatelessWidget {
             future: getUserData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               } else {
@@ -107,7 +107,7 @@ class MyDrawer extends StatelessWidget {
           ),
           // collection requests tile
           MyDrawerTile(
-              text: '''C O L L E C T I O N\nR E Q U E S T S''',
+              text: '''C O L L E C T I O N\nC E N T E R''',
               icon: Icons.recycling,
               onTap: () {
                 //Pop drawer
@@ -117,7 +117,7 @@ class MyDrawer extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const CollectionRequestsPage(),
+                    builder: (context) => const CollectionCenter(),
                   ),
                 );
               }),
@@ -131,7 +131,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const historyPage(),
+                  builder: (context) => const HistoryPage(),
                 ),
               );
             },
