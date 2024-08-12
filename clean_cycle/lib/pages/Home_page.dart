@@ -1,5 +1,4 @@
 import 'package:clean_cycle/pages/collection_center.dart';
-import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const GoogleMapPage(),
-    const CollectionRequestsPage(),
+    CollectionCenter(),
     //const ContributePage(),
     const GeminiPage()
   ];

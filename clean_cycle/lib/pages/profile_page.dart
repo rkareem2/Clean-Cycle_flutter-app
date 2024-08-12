@@ -121,18 +121,25 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
 
+                // first name
+                MyTextBox(
+                  text: userMap['fname'],
+                  sectionName: 'fname',
+                  onPressed: () => editField('fname'),
+                ),
+
+                // last name
+                MyTextBox(
+                  text: userMap['lname'],
+                  sectionName: 'lname',
+                  onPressed: () => editField('lname'),
+                ),
+
                 // username
                 MyTextBox(
                   text: userMap['username'],
                   sectionName: 'username',
                   onPressed: () => editField('username'),
-                ),
-
-                // password
-                MyTextBox(
-                  text: userMap['password'],
-                  sectionName: 'password',
-                  onPressed: () => editField('password'),
                 ),
               ],
             );

@@ -40,7 +40,6 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       theme: Provider.of<ThemeProvider>(context).themeData,
       routes: {
-        '/splash': (context) => const SplashScreen(),
         '/auth': (context) => const AuthGate(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUpPage(),

@@ -2,6 +2,34 @@ import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+Future<bool> searchCategory(String documentId, String collectionName, String searchString) async {
+  DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+      .collection(collectionName)
+      .doc(documentId)
+      .get();
+
+  if (documentSnapshot.exists) {
+    List<dynamic> arrayField = documentSnapshot.get('category');
+    if (arrayField.contains(searchString)) {
+      print("Array contains the string: $searchString");
+      return true;
+    } else {
+      print("Array does not contain the string: $searchString");
+      return false;
+    }
+  } else {
+    print("Document $documentId does not exist");
+    return false;
+  }
+}
+
+bool checkIfArrayContainsString(String documentId, String collectionName, String searchString) {
+  searchCategory(documentId, collectionName, searchString).then((result) {
+    return(result);
+  });
+  return false;
+}
+
 class CollectionCenter extends StatefulWidget {
   @override
   _CollectionCenterState createState() => _CollectionCenterState();
@@ -47,7 +75,7 @@ class _CollectionCenterState extends State<CollectionCenter> {
                     DropdownButton<String>(
                       value: filterCriteria,
                       items:
-                          ['All', 'Recycle', 'Re-use'].map((String category) {
+                          ['All', 'Recycle', 'Reuse'].map((String category) {
                         return DropdownMenuItem<String>(
                           value: category,
                           child: Text(category),
@@ -82,7 +110,7 @@ class _CollectionCenterState extends State<CollectionCenter> {
             final matchesSearchQuery = name.contains(searchQuery.toLowerCase());
 
             final matchesFilterCriteria =
-                filterCriteria == 'All' || doc['category'] == filterCriteria;
+                filterCriteria == 'All' || checkIfArrayContainsString(doc.id, "collection-items", filterCriteria);
 
             return matchesSearchQuery && matchesFilterCriteria;
           }).toList();
@@ -98,6 +126,8 @@ class _CollectionCenterState extends State<CollectionCenter> {
               var item = data[index];
               return GridTile(
                 child: Container(
+                  margin: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   color: Colors.blueAccent,
                   child: Center(
                     child: Column(
@@ -109,7 +139,7 @@ class _CollectionCenterState extends State<CollectionCenter> {
                               color: Colors.white, fontSize: 18),
                         ),
                         Text(
-                          item['category'],
+                          item['description'],
                           style: const TextStyle(
                               color: Colors.white, fontSize: 14),
                         ),
