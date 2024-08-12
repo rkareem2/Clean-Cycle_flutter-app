@@ -1,17 +1,17 @@
-import 'package:clean_cycle/services/models/user_model.dart';
+import 'package:clean_cycle/models/collection_item_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class UserRepository extends GetxController {
+class ContributeItemRepository extends GetxController {
 
-  static UserRepository get instance => Get.find();
+  static ContributeItemRepository get instance => Get.find();
   final _db = FirebaseFirestore.instance;
 
-  createUser(UserModel user) async {
-    await _db.collection("users").add(user.toJson())
+  postItem(CollectionItemModel item) async {
+    await _db.collection("collection-items").add(item.toJson())
       .whenComplete(() => 
-        Get.snackbar("Success", "Your account has been created.",
+        Get.snackbar("Success", "Your item has been posted.",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green.withOpacity(0.1),
         colorText: Colors.green)

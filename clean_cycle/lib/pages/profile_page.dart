@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   // user
   final currentUser = FirebaseAuth.instance.currentUser!;
   // all users
-  final usersCollection = FirebaseFirestore.instance.collection("Users");
+  final usersCollection = FirebaseFirestore.instance.collection("users");
 
   // edit field
   Future<void> editField(String field) async {
@@ -75,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
-            .collection("Users")
+            .collection("users")
             .doc(currentUser.email)
             .snapshots(),
         builder: (context, snapshot) {
