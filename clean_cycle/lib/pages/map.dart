@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:clean_cycle/pages/map_navigation_pages/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 
@@ -145,6 +145,19 @@ class _MyAppState extends State<GoogleMapPage> {
     }
   }
 
+  void _launchGoogleMaps() async {
+    double destLatitude = _selectedDestination.latitude;
+    double destlongitude = _selectedDestination.longitude;
+
+    final Uri googleMapsUrl = Uri.parse('https://www.google.com/maps/dir/?api=1&origin=current+location&destination=$destLatitude,$destlongitude&travelmode=driving');
+
+    if (await canLaunchUrl(googleMapsUrl)) {
+      await launchUrl(googleMapsUrl);
+    } else {
+      throw 'Could not launch $googleMapsUrl';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,17 +235,7 @@ class _MyAppState extends State<GoogleMapPage> {
                                           color: Colors.black)),
                                 ),
                                 ElevatedButton.icon(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => NavigationPage(
-                                              locationName: _selectedLocation,
-                                              origin: _currentLocation,
-                                              destination:
-                                                  _selectedDestination)),
-                                    );
-                                  },
+                                  onPressed: _launchGoogleMaps,
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor:
                                         Colors.blue,

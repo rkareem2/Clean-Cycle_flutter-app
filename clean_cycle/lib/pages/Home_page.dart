@@ -1,9 +1,6 @@
-import 'package:clean_cycle/components/chatbot.dart';
-import 'package:clean_cycle/components/my_nav-bar.dart';
 import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
-import 'package:clean_cycle/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
 import 'package:clean_cycle/pages/map.dart';
@@ -22,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     GoogleMapPage(),
     CollectionRequestsPage(),
     ContributePage(),
-    ChatbotSection()
+    GeminiPage()
   ];
 
   void _onItemTapped(int index) {
@@ -40,8 +37,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.request_page),
@@ -52,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Contribute',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble),
+            icon: Icon(Icons.star_border),
             label: 'Gemini',
           ),
         ],

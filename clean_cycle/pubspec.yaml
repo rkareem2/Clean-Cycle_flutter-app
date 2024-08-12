@@ -28,7 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  image_picker: ^0.8.5+3
   flutter:
     sdk: flutter
 
@@ -45,8 +44,10 @@ dependencies:
   google_generative_ai: ^0.4.3
   google_maps_flutter: ^2.8.0
   http: ^1.2.2
+  image_picker: ^1.1.2
   location: ^7.0.0
   provider: ^6.1.2
+  url_launcher: ^6.3.0
   webview_flutter: ^4.8.0
 
 dev_dependencies:
