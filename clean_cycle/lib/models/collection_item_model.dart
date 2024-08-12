@@ -1,15 +1,15 @@
-class RecycleItemModel {
+class CollectionItemModel {
   final String? id;
   final String name;
   final String description;
-  final bool isReuseable;
+  final bool isReusable;
   final bool isRecyclable;
 
-  const RecycleItemModel({
+  const CollectionItemModel({
     this.id,
     required this.name,
     required this.description,
-    required this.isReuseable,
+    required this.isReusable,
     required this.isRecyclable,
   });
 
@@ -21,7 +21,7 @@ class RecycleItemModel {
     return {
       "name": name,
       "description": description,
-      "isReuseable": isReuseable,
+      "isReusable": isReusable,
       "isRecyclable": isRecyclable,
     };
   }

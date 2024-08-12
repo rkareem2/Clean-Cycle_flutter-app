@@ -1,3 +1,4 @@
+import 'package:clean_cycle/pages/collection_center.dart';
 import 'package:clean_cycle/pages/collection_requests_page.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
@@ -15,11 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    GoogleMapPage(),
-    CollectionRequestsPage(),
-    ContributePage(),
-    GeminiPage()
+  final List<Widget> _pages = [
+    const GoogleMapPage(),
+    const CollectionRequestsPage(),
+    const ContributePage(),
+    const GeminiPage()
   ];
 
   void _onItemTapped(int index) {
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: _selectedIndex == 0 ? AppBar() : null,
       drawer: _selectedIndex == 0 ? const MyDrawer() : null,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

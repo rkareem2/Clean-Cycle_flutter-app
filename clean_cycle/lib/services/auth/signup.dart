@@ -1,6 +1,6 @@
 import 'package:clean_cycle/components/my_button.dart';
-import 'package:clean_cycle/services/controllers/signup_controller.dart';
-import 'package:clean_cycle/services/models/user_model.dart';
+import 'package:clean_cycle/controllers/signup_controller.dart';
+import 'package:clean_cycle/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
