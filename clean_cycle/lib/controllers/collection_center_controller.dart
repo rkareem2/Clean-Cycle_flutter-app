@@ -6,6 +6,12 @@ import 'package:get/get.dart';
 class CollectionCenterController extends GetxController {
   static CollectionCenterController get instance => Get.find();
 
+  final nameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final categoryController = <bool>[];
+  bool isRecycle = false;
+  bool isReuse = false;
+
   Future<bool> postItem(CollectionItemModel item, BuildContext context) async {
     try {
       await addCollectionItem(item);
@@ -21,7 +27,7 @@ class CollectionCenterController extends GetxController {
     final itemCollection = FirebaseFirestore.instance.collection('collection-items');
     await itemCollection.doc().set({
       'name': item.name,
-      'desscription': item.description,
+      'description': item.description,
       'category': item.category,
     });
   }

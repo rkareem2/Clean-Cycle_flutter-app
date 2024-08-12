@@ -1,5 +1,4 @@
 import 'package:clean_cycle/pages/collection_center.dart';
-import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
@@ -18,7 +17,6 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const GoogleMapPage(),
     CollectionCenter(),
-    //const ContributePage(),
     const GeminiPage()
   ];
 
@@ -44,12 +42,6 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.request_page),
             label: 'Requests',
           ),
-          /*
-          BottomNavigationBarItem(
-            icon: Icon(Icons.upgrade_sharp),
-            label: 'Contribute',
-          ),
-          */
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
             label: 'Gemini',

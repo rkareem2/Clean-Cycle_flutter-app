@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:clean_cycle/services/auth/auth_service.dart'; // Import your authentication service
+import 'package:clean_cycle/services/auth_service.dart'; // Import your authentication service
 
 class LogoutPage extends StatelessWidget {
   const LogoutPage({super.key});

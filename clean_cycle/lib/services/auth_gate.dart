@@ -1,5 +1,5 @@
-import 'package:clean_cycle/pages/Home_page.dart';
-import 'package:clean_cycle/services/auth/login.dart';
+import 'package:clean_cycle/pages/homepage.dart';
+import 'package:clean_cycle/services/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
