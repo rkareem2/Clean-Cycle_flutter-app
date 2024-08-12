@@ -1,7 +1,6 @@
 import 'package:clean_cycle/components/my_button.dart';
-import 'package:clean_cycle/services/auth/auth_service.dart';
-import 'package:clean_cycle/services/controllers/signup_controller.dart';
-import 'package:clean_cycle/services/models/user_model.dart';
+import 'package:clean_cycle/controllers/signup_controller.dart';
+import 'package:clean_cycle/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,52 +12,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  //text editing controllers
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
-
   final formKey = GlobalKey<FormState>();
-
-  //register method
-  void register() async {
-    //get auth service
-    final authService = AuthService();
-
-    //check if passwords match -> create user
-    if (passwordController.text == confirmPasswordController.text) {
-      //try creating user
-      try {
-        await authService.signInWithEmailPassword(
-          emailController.text,
-          passwordController.text,
-        );
-        Navigator.pushNamed(context, '/homepage');
-      }
-
-      //display any errors
-      catch (e) {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(e.toString()),
-          ),
-        );
-      }
-    }
-
-    //if passwords don't match -> show error
-    else {
-      showDialog(
-        context: context,
-        builder: (context) => const AlertDialog(
-          title: Text("Passwords don't match!"),
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +176,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: TextFormField(
-                            controller: passwordController,
+                            controller: controller.passwordController,
                             obscureText: _obscurePassword,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -239,9 +195,16 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                             ),
                             validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your password';
-                              }
+                              String password = controller.passwordController.text;
+
+                              if (password.isEmpty) { return 'Please enter your password'; }
+                              if (!((8 <= password.length) && (password.length <= 12))) { return 'Enter a password length between 8-12 characters'; }
+                              if (password.contains(controller.usernameController.text)) { return 'Password cannot contain your username'; }
+                              if (password.isAlphabetOnly || password.isNumericOnly) { return 'Password must be alphanumeric'; }
+                              if (!password.contains(RegExp(r'[A-Z]'))) { return 'Password must have at least one uppercase letter'; }
+                              if (!password.contains(RegExp(r'[a-z]'))) { return 'Password must have at least one lowercase letter'; }
+                              if (!(password.contains('!') || password.contains('@') || password.contains('#') || password.contains('\$') || password.contains('%') || password.contains('?') || password.contains('*'))) { return 'Password must have at least one of: [!, @, #, \$, %, ?, *]'; }
+
                               return null;
                             },
                           ),
@@ -262,7 +225,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: TextFormField(
-                            controller: confirmPasswordController,
+                            controller: controller.confirmPasswordController,
                             obscureText: _obscureConfirmPassword,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -285,7 +248,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               if (value == null || value.isEmpty) {
                                 return 'Please confirm your password';
                               }
-                              if (value != passwordController.text) {
+                              if (value != controller.passwordController.text) {
                                 return 'Passwords do not match';
                               }
                               return null;
@@ -308,7 +271,6 @@ class _SignUpPageState extends State<SignUpPage> {
                             lname: controller.lnameController.text.trim(),
                             username: controller.usernameController.text.trim(),
                             email: controller.emailController.text.trim(),
-                            password: controller.passwordController.text.trim(),
                           );
 
                           // Save user to database
@@ -350,10 +312,4 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: SignUpPage(),
-  ));
 }

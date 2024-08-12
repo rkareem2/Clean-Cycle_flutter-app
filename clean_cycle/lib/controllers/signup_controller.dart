@@ -1,6 +1,6 @@
 import 'package:clean_cycle/services/auth/auth_service.dart';
-import 'package:clean_cycle/services/models/user_model.dart';
-import 'package:clean_cycle/services/repositories/user_repository.dart';
+import 'package:clean_cycle/models/user_model.dart';
+import 'package:clean_cycle/repositories/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +21,7 @@ class SignUpController extends GetxController {
   Future<bool> createUser(UserModel user, BuildContext context) async {
     try {
       // Sign up the user with email and password
-      UserCredential userCredential =
-          await _authService.signUpWithEmailPassword(
-        user.email,
-        user.password,
-      );
+      UserCredential userCredential = await _authService.signUpWithEmailPassword(emailController.text, passwordController.text);
 
       // Save additional user information in Firestore
       await saveUserDetails(user, userCredential.user!.uid);
@@ -34,6 +30,7 @@ class SignUpController extends GetxController {
       Get.snackbar('Success', 'User signed up successfully.');
       return true;
     } catch (e) {
+      print(e);
       // Handle sign-up errors
       Get.snackbar('Error', e.toString());
       return false;
@@ -41,14 +38,13 @@ class SignUpController extends GetxController {
   }
 
   Future<void> saveUserDetails(UserModel user, String uid) async {
-    final userCollection = FirebaseFirestore.instance.collection('Users');
+    final userCollection = FirebaseFirestore.instance.collection('users');
     await userCollection.doc(user.email).set({
       'id': uid,
       'fname': user.fname,
       'lname': user.lname,
       'username': user.username,
       'email': user.email,
-      'password': user.password,
       // Optional: Add a default profile URL if needed
       'profileUrl':
           'https://example.com/user-profile.jpg', // Default profile URL

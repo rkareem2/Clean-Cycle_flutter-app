@@ -15,7 +15,7 @@ class MyDrawer extends StatelessWidget {
   Future<Map<String, dynamic>> getUserData() async {
     final currentUser = FirebaseAuth.instance.currentUser!;
     final docSnapshot = await FirebaseFirestore.instance
-        .collection('Users')
+        .collection('users')
         .doc(currentUser.email)
         .get();
 

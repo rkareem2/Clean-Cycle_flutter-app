@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, '/auth');
+      Navigator.pushReplacementNamed(context, '/auth');
     });
   }
 
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(color: Colors.blueAccent[400]),
+            color: Colors.blueAccent[400],
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

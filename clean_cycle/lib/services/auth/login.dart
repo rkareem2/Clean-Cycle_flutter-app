@@ -203,9 +203,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-void main() {
-  runApp(const MaterialApp(
-    home: LoginPage(),
-  ));
-}

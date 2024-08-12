@@ -50,5 +50,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to show your current position on the map.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to provide relevant services even when the app is in the background.</string>
 </dict>
 </plist>
