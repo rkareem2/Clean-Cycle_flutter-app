@@ -37,9 +37,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const AuthGate(),
+      home: const SplashScreen(),
       theme: Provider.of<ThemeProvider>(context).themeData,
-      // initialRoute: "/splash",
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/auth': (context) => const AuthGate(),

@@ -21,11 +21,7 @@ class SignUpController extends GetxController {
   Future<bool> createUser(UserModel user, BuildContext context) async {
     try {
       // Sign up the user with email and password
-      UserCredential userCredential =
-          await _authService.signUpWithEmailPassword(
-        user.email,
-        user.password,
-      );
+      UserCredential userCredential = await _authService.signUpWithEmailPassword(emailController.text, passwordController.text);
 
       // Save additional user information in Firestore
       await saveUserDetails(user, userCredential.user!.uid);
@@ -34,6 +30,7 @@ class SignUpController extends GetxController {
       Get.snackbar('Success', 'User signed up successfully.');
       return true;
     } catch (e) {
+      print(e);
       // Handle sign-up errors
       Get.snackbar('Error', e.toString());
       return false;
@@ -41,14 +38,13 @@ class SignUpController extends GetxController {
   }
 
   Future<void> saveUserDetails(UserModel user, String uid) async {
-    final userCollection = FirebaseFirestore.instance.collection('Users');
+    final userCollection = FirebaseFirestore.instance.collection('users');
     await userCollection.doc(user.email).set({
       'id': uid,
       'fname': user.fname,
       'lname': user.lname,
       'username': user.username,
       'email': user.email,
-      'password': user.password,
       // Optional: Add a default profile URL if needed
       'profileUrl':
           'https://example.com/user-profile.jpg', // Default profile URL

@@ -78,8 +78,13 @@ class _MyAppState extends State<GoogleMapPage> {
       _currentLocation = LatLng(position.latitude, position.longitude);
       _fetchRecyclingStations();
     } catch (e) {
-      print('Error getting user location: $e');
-      print('Attempting to request location.');
+      showDialog(
+        // ignore: use_build_context_synchronously
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Error getting user location: $e!\nAttempting to request location..."),
+        ),
+      );
       _requestLocationPermission();
     }
   }
@@ -125,7 +130,13 @@ class _MyAppState extends State<GoogleMapPage> {
         ),
       );
     } else {
-      print('Failed to fetch recycling stations');
+      showDialog(
+        // ignore: use_build_context_synchronously
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Failed to fetch recycling stations!"),
+        ),
+      );
     }
   }
 
