@@ -90,7 +90,7 @@ class _ContributePageState extends State<ContributePage> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Tags',
+                  'Tags(select most appropriate tags)',
                   style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 5),
