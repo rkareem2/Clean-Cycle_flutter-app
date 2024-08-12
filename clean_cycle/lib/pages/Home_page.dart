@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const GoogleMapPage(),
     const CollectionRequestsPage(),
-    const ContributePage(),
+    //const ContributePage(),
     const GeminiPage()
   ];
 
@@ -45,10 +45,12 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.request_page),
             label: 'Requests',
           ),
+          /*
           BottomNavigationBarItem(
             icon: Icon(Icons.upgrade_sharp),
             label: 'Contribute',
           ),
+          */
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
             label: 'Gemini',
