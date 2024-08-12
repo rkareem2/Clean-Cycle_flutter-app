@@ -39,8 +39,8 @@ class HomePageState extends State<HomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.request_page),
-            label: 'Requests',
+            icon: Icon(Icons.business_outlined),
+            label: 'Collection Center',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
