@@ -9,10 +9,10 @@ class ContributePage extends StatefulWidget {
   const ContributePage({super.key});
 
   @override
-  _ContributePageState createState() => _ContributePageState();
+  ContributePageState createState() => ContributePageState();
 }
 
-class _ContributePageState extends State<ContributePage> {
+class ContributePageState extends State<ContributePage> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   final formKey = GlobalKey<FormState>();

@@ -4,10 +4,10 @@ class EnvDataPage extends StatefulWidget {
   const EnvDataPage({super.key});
   
   @override
-  _EnvDataPageState createState() => _EnvDataPageState();
+  EnvDataPageState createState() => EnvDataPageState();
 }
 
-class _EnvDataPageState extends State<EnvDataPage> {
+class EnvDataPageState extends State<EnvDataPage> {
 
   @override
   Widget build(BuildContext context) {

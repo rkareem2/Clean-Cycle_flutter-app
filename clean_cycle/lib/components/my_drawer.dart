@@ -45,7 +45,7 @@ class MyDrawer extends StatelessWidget {
             future: getUserData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               } else {
@@ -117,7 +117,7 @@ class MyDrawer extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CollectionCenter(),
+                    builder: (context) => const CollectionCenter(),
                   ),
                 );
               }),

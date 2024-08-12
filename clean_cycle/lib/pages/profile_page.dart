@@ -35,10 +35,10 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           content: TextField(
               autofocus: true,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: "Enter new $field",
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: const TextStyle(color: Colors.grey),
               ),
               onChanged: (value) {
                 newValue = value;

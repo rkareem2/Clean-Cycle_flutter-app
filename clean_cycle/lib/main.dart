@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => const HomePage(),
         '/logout': (context) => const LogoutPage(),
         '/google_map': (context) => const GoogleMapPage(),
-        '/collection_center': (context) => CollectionCenter(),
+        '/collection_center': (context) => const CollectionCenter(),
         '/contribute_page': (context) => const ContributePage(),
         '/env_data_page': (context) => const EnvDataPage(),
         '/carbon_tracker_page': (context) => const CarbonTrackerPage(),

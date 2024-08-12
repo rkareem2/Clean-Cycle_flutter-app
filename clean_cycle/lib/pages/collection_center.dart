@@ -3,11 +3,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CollectionCenter extends StatefulWidget {
+  const CollectionCenter({super.key});
+  
   @override
-  _CollectionCenterState createState() => _CollectionCenterState();
+  CollectionCenterState createState() => CollectionCenterState();
 }
 
-class _CollectionCenterState extends State<CollectionCenter> {
+class CollectionCenterState extends State<CollectionCenter> {
   final CollectionReference items = FirebaseFirestore.instance.collection('collection-items');
   String searchQuery = '';
   String filterCriteria = 'All';

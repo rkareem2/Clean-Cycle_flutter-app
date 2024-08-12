@@ -66,10 +66,10 @@ class EcoQuiz extends StatefulWidget {
   const EcoQuiz({super.key});
 
   @override
-  _EcoQuizState createState() => _EcoQuizState();
+  EcoQuizState createState() => EcoQuizState();
 }
 
-class _EcoQuizState extends State<EcoQuiz> {
+class EcoQuizState extends State<EcoQuiz> {
   List<Question> _questions = [];
   bool _isLoading = true;
   String? _errorMessage;
