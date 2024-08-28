@@ -18,12 +18,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final controller = Get.put(SignUpController());
 
   @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
