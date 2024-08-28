@@ -18,12 +18,6 @@ class ContributePageState extends State<ContributePage> {
   final formKey = GlobalKey<FormState>();
   final controller = Get.put(CollectionCenterController());
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await _picker.pickImage(source: source);
     setState(() {
