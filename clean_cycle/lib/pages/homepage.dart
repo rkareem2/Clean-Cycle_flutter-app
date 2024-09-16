@@ -1,3 +1,4 @@
+// import 'package:clean_cycle/pages/chat_pages/chat_page.dart';
 import 'package:clean_cycle/pages/collection_center.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = const [
     GoogleMapPage(),
+    // ChatPage(receiverId: "6pGfqzojLPUQ28CflkE5ACAFH8Z2"),
     CollectionCenter(),
     GeminiPage()
   ];
