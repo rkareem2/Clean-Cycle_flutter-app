@@ -1,5 +1,3 @@
-// import 'package:clean_cycle/pages/chat_pages/chat_page.dart';
-import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -166,8 +164,9 @@ class CollectionCenterState extends State<CollectionCenter> {
               opacity: menuExpanded ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 300),
               child: FloatingActionButton.extended(
+                heroTag: 'contribute-page',
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ContributePage()));
+                  Navigator.pushNamed(context, '/contribute_page');
                 },
                 icon: const Icon(Icons.add),
                 label: const Text('Create Requests'),
@@ -181,11 +180,12 @@ class CollectionCenterState extends State<CollectionCenter> {
               opacity: menuExpanded ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 300),
               child: FloatingActionButton.extended(
+                heroTag: 'chat-rooms',
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatPage(receiverId: "AMf2SChPvJVgfqQbAEyS0BDm7772")));
+                  Navigator.pushNamed(context, '/chat_rooms');
                 },
                 icon: const Icon(Icons.chat_bubble),
-                label: const Text('Chat'),
+                label: const Text('Chats'),
               ),
             ),
           ),
@@ -195,7 +195,7 @@ class CollectionCenterState extends State<CollectionCenter> {
             child: FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  menuExpanded = !menuExpanded; // Toggle the expansion state
+                  menuExpanded = !menuExpanded;
                 });
               },
               heroTag: 'mainBtn',

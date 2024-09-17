@@ -36,15 +36,15 @@ class SignUpController extends GetxController {
 
   Future<void> saveUserDetails(UserModel user, String uid) async {
     final userCollection = FirebaseFirestore.instance.collection('users');
-    await userCollection.doc(user.email).set({
+    await userCollection.doc(uid).set({
       'id': uid,
       'fname': user.fname,
       'lname': user.lname,
       'username': user.username,
       'email': user.email,
+      'chatRooms': user.chatRooms, 
       // Optional: Add a default profile URL if needed
-      'profileUrl':
-          'https://example.com/user-profile.jpg', // Default profile URL
+      'profileUrl': 'https://example.com/user-profile.jpg', // Default profile URL
     });
   }
 }

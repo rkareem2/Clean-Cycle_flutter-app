@@ -4,13 +4,15 @@ class UserModel {
   final String lname;
   final String username;
   final String email;
+  Map<String, dynamic>? chatRooms;
 
-  const UserModel({
+  UserModel({
     this.id,
     required this.fname,
     required this.lname,
     required this.username,
     required this.email,
+    this.chatRooms
   });
 
   get firstName => null;
@@ -24,6 +26,7 @@ class UserModel {
       "lname": lname,
       "username": username,
       "email": email,
+      "chatRooms": chatRooms
     };
   }
 }

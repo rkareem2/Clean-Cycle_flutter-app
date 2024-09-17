@@ -1,4 +1,5 @@
 import 'package:clean_cycle/Themes/theme_provider.dart';
+import 'package:clean_cycle/pages/chat_pages/chat_list.dart';
 import 'package:clean_cycle/pages/collection_center.dart';
 import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:clean_cycle/pages/gemini_pages/carbon_tracker_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/google_map': (context) => const GoogleMapPage(),
         '/collection_center': (context) => const CollectionCenter(),
         '/contribute_page': (context) => const ContributePage(),
+        '/chat_rooms': (context) => const ChatListPage(),
         '/env_data_page': (context) => const EnvDataPage(),
         '/carbon_tracker_page': (context) => const CarbonTrackerPage(),
         '/learning_center': (context) => LearningCenter(),

@@ -5,8 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
-  final String receiverId;
-  const ChatPage({super.key, required this.receiverId});
+  final String chatRoomId;
+  final String chatRoomName;
+  const ChatPage({super.key, required this.chatRoomId, required this.chatRoomName});
 
   @override
   State<StatefulWidget> createState() => ChatPageState();
@@ -19,13 +20,15 @@ class ChatPageState extends State<ChatPage> {
 
   void sendMessage() async {
     if (_messageController.text.isNotEmpty) {
-      await _chatService.sendMessage(widget.receiverId, _messageController.text);
+      await _chatService.sendMessage(widget.chatRoomId, _messageController.text);
       _messageController.clear();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(widget.chatRoomName)),
       body: Column(
         children: [
           Expanded(
@@ -40,13 +43,12 @@ class ChatPageState extends State<ChatPage> {
 
   Widget _buildMessageList() {
     return StreamBuilder(
-      stream: _chatService.getMessages(widget.receiverId, _firebaseAuth.currentUser!.uid),
+      stream: _chatService.getMessages(widget.chatRoomId, _firebaseAuth.currentUser!.uid),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
-          // return Text("Loading...");
         }
 
         return ListView(
