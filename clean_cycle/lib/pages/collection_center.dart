@@ -1,4 +1,3 @@
-import 'package:clean_cycle/pages/contribute_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +12,7 @@ class CollectionCenterState extends State<CollectionCenter> {
   final CollectionReference items = FirebaseFirestore.instance.collection('collection-items');
   String searchQuery = '';
   String filterCriteria = 'All';
+  bool menuExpanded = false;
 
   Future<List<QueryDocumentSnapshot>> getFilteredDocuments() async {
     final snapshot = await items.get();
@@ -155,15 +155,54 @@ class CollectionCenterState extends State<CollectionCenter> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ContributePage()),
-          );
-        },
-        icon: const Icon(Icons.add),
-        label: const Text('Create Requests'),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            right: 10,
+            bottom: 145,
+            child: AnimatedOpacity(
+              opacity: menuExpanded ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 300),
+              child: FloatingActionButton.extended(
+                heroTag: 'contribute-page',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/contribute_page');
+                },
+                icon: const Icon(Icons.add),
+                label: const Text('Create Requests'),
+              ),
+            ),
+          ),
+          Positioned(
+            right: 10,
+            bottom: 85,
+            child: AnimatedOpacity(
+              opacity: menuExpanded ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 300),
+              child: FloatingActionButton.extended(
+                heroTag: 'chat-rooms',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/chat_rooms');
+                },
+                icon: const Icon(Icons.chat_bubble),
+                label: const Text('Chats'),
+              ),
+            ),
+          ),
+          Positioned(
+            right: 10,
+            bottom: 0,
+            child: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  menuExpanded = !menuExpanded;
+                });
+              },
+              heroTag: 'mainBtn',
+              child: Icon(menuExpanded ? Icons.close : Icons.menu),
+            ),
+          ),
+        ],
       ),
     );
   }

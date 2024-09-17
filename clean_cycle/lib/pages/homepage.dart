@@ -1,8 +1,8 @@
+import 'package:clean_cycle/pages/map.dart';
 import 'package:clean_cycle/pages/collection_center.dart';
 import 'package:clean_cycle/pages/gemini_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_cycle/components/my_drawer.dart';
-import 'package:clean_cycle/pages/map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
