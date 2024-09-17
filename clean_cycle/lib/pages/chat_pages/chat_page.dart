@@ -79,10 +79,13 @@ class ChatPageState extends State<ChatPage> {
     return Row(
       children: [
         Expanded(
-          child: TextField(
-            controller: _messageController,
-            decoration: const InputDecoration(hintText: 'Enter your message...'),
-            obscureText: false,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _messageController,
+              decoration: const InputDecoration(hintText: 'Enter your message...'),
+              obscureText: false,
+            ),
           ),
         ),
 
