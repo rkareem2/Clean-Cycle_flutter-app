@@ -1,4 +1,7 @@
+import 'package:clean_cycle/pages/chat_pages/chat_page.dart';
+import 'package:clean_cycle/services/chat_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CollectionCenter extends StatefulWidget {
@@ -47,6 +50,15 @@ class CollectionCenterState extends State<CollectionCenter> {
     } else {
       return false;
     }
+  }
+
+  void requestItem(String itemName, String itemId, String itemOwnerId) {
+    String currentUserId = FirebaseAuth.instance.currentUser!.uid;
+    ChatService service = ChatService();
+    String chatRoomId = "${itemId}_$currentUserId";
+
+    service.updateUsersChatRoom(itemId, currentUserId, itemOwnerId, itemName);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(chatRoomId: chatRoomId, chatRoomName: itemName)));
   }
 
   @override
@@ -145,6 +157,7 @@ class CollectionCenterState extends State<CollectionCenter> {
                             item['description'],
                             style: const TextStyle(color: Colors.white, fontSize: 14),
                           ),
+                          ElevatedButton(onPressed: () => requestItem(item['name'], item.id, item['ownerId']), child: const Text("Request Item", style: TextStyle(color: Colors.blueAccent)),)
                         ],
                       ),
                     ),

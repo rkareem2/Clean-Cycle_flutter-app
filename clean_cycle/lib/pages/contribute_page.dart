@@ -1,5 +1,6 @@
 import 'package:clean_cycle/controllers/collection_center_controller.dart';
 import 'package:clean_cycle/models/collection_item_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -187,6 +188,7 @@ class ContributePageState extends State<ContributePage> {
                             final item = CollectionItemModel(
                               name: controller.nameController.text.trim(),
                               description: controller.descriptionController.text.trim(),
+                              ownerId: FirebaseAuth.instance.currentUser!.uid,
                               category: categorylist,
                             );
 
