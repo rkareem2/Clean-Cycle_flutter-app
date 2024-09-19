@@ -4,6 +4,7 @@ class UserModel {
   final String lname;
   final String username;
   final String email;
+  List<String>? collectionItem;
   Map<String, dynamic>? chatRooms;
 
   UserModel({
@@ -12,6 +13,7 @@ class UserModel {
     required this.lname,
     required this.username,
     required this.email,
+    this.collectionItem,
     this.chatRooms
   });
 
@@ -26,6 +28,7 @@ class UserModel {
       "lname": lname,
       "username": username,
       "email": email,
+      "collectionItem": collectionItem,
       "chatRooms": chatRooms
     };
   }
