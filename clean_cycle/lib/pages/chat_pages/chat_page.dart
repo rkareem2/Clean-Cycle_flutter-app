@@ -87,6 +87,9 @@ class ChatPageState extends State<ChatPage> {
               controller: _messageController,
               decoration: const InputDecoration(hintText: 'Enter your message...'),
               obscureText: false,
+              onSubmitted: (_) {
+                sendMessage();
+              },
             ),
           ),
         ),

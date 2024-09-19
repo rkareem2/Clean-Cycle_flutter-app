@@ -27,11 +27,11 @@ class _MyAppState extends State<GeminiPage> {
             margin: const EdgeInsets.all(10),
             child: ListView(
               children: [
-                buildGeminiSectionButton("assets/logo1.png", "Environmental Data Page", "/env_data_page"),
+                buildGeminiSectionButton("assets/images/environmental_data.png", "Environmental Data Page", "/env_data_page"),
                 const SizedBox(height: 5),
-                buildGeminiSectionButton("assets/logo1.png", "Carbon Footprint Tracker", "/carbon_tracker_page"),
+                buildGeminiSectionButton("assets/images/carbon_footprint.png", "Carbon Footprint Tracker", "/carbon_tracker_page"),
                 const SizedBox(height: 5),
-                buildGeminiSectionButton("assets/logo1.png", "Learning Center", "/learning_center")
+                buildGeminiSectionButton("assets/images/learning_center.png", "Learning Center", "/learning_center")
               ],
             ),
           ),
@@ -64,7 +64,8 @@ class _MyAppState extends State<GeminiPage> {
 
   Widget buildGeminiSectionButton(String imageUrl, String textValue, String routeAddress) {
     return Material (
-      color: Colors.blue,
+      color: const Color.fromARGB(255, 50, 50, 50),
+      borderRadius: BorderRadius.circular(10),
       child: Container(
         padding: const EdgeInsets.all(10),
         child: InkWell(

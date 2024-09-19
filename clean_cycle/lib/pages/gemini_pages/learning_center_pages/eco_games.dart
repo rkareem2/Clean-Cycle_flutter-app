@@ -1,12 +1,12 @@
 import 'package:clean_cycle/pages/gemini_pages/learning_center.dart';
-import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_quiz.dart';
+// import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_quiz.dart';
 import 'package:flutter/material.dart';
 
 class EcoGames extends StatelessWidget {
   final List<GridItem> items = [
-    GridItem('Flashcards', Icons.quiz_outlined, const TopicPage(title: 'Flashcards')),
-    GridItem('Quizzes', Icons.file_copy_outlined, const EcoQuiz()),
-    GridItem('Trivia', Icons.emoji_events_outlined, const TopicPage(title: 'Trivia')),
+    // GridItem('Flashcards', Icons.quiz_outlined, const TopicPage(title: 'Flashcards')),
+    // GridItem('Quizzes', Icons.file_copy_outlined, const EcoQuiz()),
+    // GridItem('Trivia', Icons.emoji_events_outlined, const TopicPage(title: 'Trivia')),
   ];
 
   EcoGames({super.key});

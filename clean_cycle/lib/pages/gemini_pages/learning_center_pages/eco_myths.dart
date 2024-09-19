@@ -51,7 +51,7 @@ class EcoMythsPageState extends State<EcoMythsPage> {
         child: Column(
           children: [
             _isLoading
-                ? const CircularProgressIndicator()
+                ? const Center(child: CircularProgressIndicator())
                 : Expanded(
                     child: ListView.builder(
                       itemCount: _flashcards.length,

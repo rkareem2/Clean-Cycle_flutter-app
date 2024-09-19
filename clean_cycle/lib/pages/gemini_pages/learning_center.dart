@@ -1,15 +1,17 @@
 import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/article.dart';
-import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_games.dart';
+// import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_games.dart';
 import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_myths.dart';
+import 'package:clean_cycle/pages/gemini_pages/learning_center_pages/eco_quiz.dart';
 import 'package:flutter/material.dart';
 
 class LearningCenter extends StatelessWidget {
   final List<GridItem> items = [
     GridItem('Articles', Icons.article_outlined, const GeminiArticle()),
     GridItem('Eco Myths', Icons.warning_amber_outlined, const EcoMythsPage()),
-    GridItem('Games', Icons.gamepad_outlined, EcoGames()),
-    GridItem('Tips', Icons.lightbulb_outline, const TopicPage(title: 'Tips')),
-    GridItem('Forums', Icons.forum_outlined, const TopicPage(title: 'Forums')),
+    GridItem('Quizzes', Icons.file_copy_outlined, const EcoQuiz()),
+    // GridItem('Games', Icons.gamepad_outlined, EcoGames()),
+    // GridItem('Tips', Icons.lightbulb_outline, const TopicPage(title: 'Tips')),
+    // GridItem('Forums', Icons.forum_outlined, const TopicPage(title: 'Forums')),
   ];
 
   LearningCenter({super.key});
@@ -78,24 +80,6 @@ class GridItemWidget extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class TopicPage extends StatelessWidget {
-  final String title;
-
-  const TopicPage({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text('Content for $title', style: const TextStyle(fontSize: 24)),
       ),
     );
   }
