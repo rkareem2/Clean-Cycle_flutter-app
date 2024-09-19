@@ -1,5 +1,6 @@
 import 'package:clean_cycle/models/collection_item_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +29,7 @@ class CollectionCenterController extends GetxController {
     await itemCollection.doc().set({
       'name': item.name,
       'description': item.description,
+      'ownerId': FirebaseAuth.instance.currentUser!.uid,
       'category': item.category,
     });
   }
