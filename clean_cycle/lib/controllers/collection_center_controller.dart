@@ -13,24 +13,17 @@ class CollectionCenterController extends GetxController {
   bool isRecycle = false;
   bool isReuse = false;
 
-  Future<bool> postItem(CollectionItemModel item, BuildContext context) async {
-    try {
-      await addCollectionItem(item);
-      Get.snackbar('Success', 'Item posted successfully.');
-      return true;
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-      return false;
-    }
-  }
+  Future<void> postItem(CollectionItemModel item) async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    final docRef = firestore.collection('collection-items').doc();
 
-  Future<void> addCollectionItem(CollectionItemModel item) async {
-    final itemCollection = FirebaseFirestore.instance.collection('collection-items');
-    await itemCollection.doc().set({
+    await docRef.set({
       'name': item.name,
       'description': item.description,
       'ownerId': FirebaseAuth.instance.currentUser!.uid,
       'category': item.category,
     });
+    await firestore.collection("users").doc(firebaseAuth.currentUser!.uid).update({'collectionItems': FieldValue.arrayUnion([docRef.id])});
   }
 }

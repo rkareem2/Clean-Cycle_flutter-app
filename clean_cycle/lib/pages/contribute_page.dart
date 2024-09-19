@@ -193,10 +193,10 @@ class ContributePageState extends State<ContributePage> {
                             );
 
                             // Save item to database
-                            CollectionCenterController.instance.postItem(item, context);
+                            CollectionCenterController.instance.postItem(item);
 
                             // Navigate to homepage
-                            Navigator.pushNamed(context, '/homepage');
+                            Navigator.pushNamed(context, '/collection_center');
                           }
                       },
                       child: const Text('Create'),
