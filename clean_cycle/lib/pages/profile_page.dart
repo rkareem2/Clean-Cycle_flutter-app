@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
       final downloadUrl = await snapshot.ref.getDownloadURL();
 
       // Update Firestore with the new profile picture URL
-      await usersCollection.doc(currentUser.email).update({
+      await usersCollection.doc(currentUser.uid).update({
         'profilePic': downloadUrl,
       });
     }
@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
             .collection("users")
-            .doc(currentUser.email)
+            .doc(currentUser.uid)
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {

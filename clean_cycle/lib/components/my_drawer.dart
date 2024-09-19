@@ -16,7 +16,7 @@ class MyDrawer extends StatelessWidget {
     final currentUser = FirebaseAuth.instance.currentUser!;
     final docSnapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc(currentUser.email)
+        .doc(currentUser.uid)
         .get();
 
     if (docSnapshot.exists) {
