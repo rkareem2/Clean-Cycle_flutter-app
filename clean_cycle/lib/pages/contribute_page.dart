@@ -196,7 +196,7 @@ class ContributePageState extends State<ContributePage> {
                             CollectionCenterController.instance.postItem(item);
 
                             // Navigate to homepage
-                            Navigator.pushNamed(context, '/collection_center');
+                            Navigator.pop(context);
                           }
                       },
                       child: const Text('Create'),

@@ -50,7 +50,7 @@ class CarbonTrackerPageState extends State<CarbonTrackerPage> {
                     SizedBox(
                       width: 75,  // Set the width here
                       height: 75,  // Set the height here
-                      child: Image.asset("assets/logo1.png")
+                      child: Image.asset("assets/images/travel.png")
                     ),
                     const Text("Travel")
                   ],
@@ -60,7 +60,7 @@ class CarbonTrackerPageState extends State<CarbonTrackerPage> {
                     SizedBox(
                       width: 75,  // Set the width here
                       height: 75,  // Set the height here
-                      child: Image.asset("assets/logo1.png")
+                      child: Image.asset("assets/images/food.png")
                     ),
                     const Text("Food")
                   ],
@@ -70,7 +70,7 @@ class CarbonTrackerPageState extends State<CarbonTrackerPage> {
                     SizedBox(
                       width: 75,  // Set the width here
                       height: 75,  // Set the height here
-                      child: Image.asset("assets/logo1.png")
+                      child: Image.asset("assets/images/electricity.png")
                     ),
                     const Text("Electricity")
                   ],

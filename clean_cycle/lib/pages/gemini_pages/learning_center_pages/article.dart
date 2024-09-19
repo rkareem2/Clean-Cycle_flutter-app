@@ -14,7 +14,7 @@ class GeminiArticleState extends State<GeminiArticle> {
   String? _response;
 
   void _onSubmit() async {
-    setState(() { _response = "# Generating..."; });
+    setState(() { _response = ""; });
     final request = "Write an article on ${_controller.text}";
     final result = await queryGemini(request);
     setState(() {
@@ -50,7 +50,7 @@ class GeminiArticleState extends State<GeminiArticle> {
             const SizedBox(height: 20),
             _response != null
                 ? Expanded(
-                    child: Markdown(
+                    child: (_response == '') ? const Center(child: CircularProgressIndicator()) : Markdown(
                       data: _response ?? ''
                     ),
                   )

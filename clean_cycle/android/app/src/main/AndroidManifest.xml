@@ -7,7 +7,7 @@
     <application
         android:label="clean_cycle"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAS-RMIK63Jbc6Smn_rocnT7czhPZwIaUI"/>
