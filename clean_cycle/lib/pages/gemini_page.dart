@@ -74,7 +74,7 @@ class _MyAppState extends State<GeminiPage> {
             children: [
               Ink.image(
                 image: AssetImage(imageUrl),
-                height: 100,
+                height: 175,
                 fit: BoxFit.fill,
               ),
               Text(textValue, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
